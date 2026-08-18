@@ -28,6 +28,9 @@ ALLOWED_SUFFIXES = {".html", ".js", ".css", ".xml", ".txt"}
 ALT_CHOICES = [
     "image",
 ]
+LEGACY_POLYFILL_URL = (
+    "https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"
+)
 
 
 def iter_target_files(paths: list[Path]) -> Iterable[Path]:
@@ -94,13 +97,22 @@ def remove_home_listing_descriptions(soup: BeautifulSoup, file_path: Path) -> in
     return removed
 
 
-def apply_cleanup(file_path: Path) -> tuple[int, int, int, int, bool]:
+def remove_legacy_polyfill(soup: BeautifulSoup) -> int:
+    removed = 0
+    for script in soup.find_all("script", src=LEGACY_POLYFILL_URL):
+        script.decompose()
+        removed += 1
+    return removed
+
+
+def apply_cleanup(file_path: Path) -> tuple[int, int, int, int, int, bool]:
     content = file_path.read_text(encoding="utf-8")
     updated = content
     replacements_count = 0
     alts_added = 0
     optional_attrs_removed = 0
     home_listing_descriptions_removed = 0
+    legacy_polyfills_removed = 0
 
     for source, target in REPLACEMENTS:
         occurrences = updated.count(source)
@@ -111,6 +123,7 @@ def apply_cleanup(file_path: Path) -> tuple[int, int, int, int, bool]:
     if file_path.suffix.lower() == ".html":
         soup = BeautifulSoup(updated, "html5lib")
         home_listing_descriptions_removed = remove_home_listing_descriptions(soup, file_path)
+        legacy_polyfills_removed = remove_legacy_polyfill(soup)
         alts_added = add_random_alt_to_images(soup)
         optional_attrs_removed = remove_optional_html5_attributes(soup)
         updated = soup.decode(formatter="html5")
@@ -128,6 +141,7 @@ def apply_cleanup(file_path: Path) -> tuple[int, int, int, int, bool]:
         alts_added,
         optional_attrs_removed,
         home_listing_descriptions_removed,
+        legacy_polyfills_removed,
         changed,
     )
 
@@ -150,6 +164,7 @@ def main() -> int:
     total_alts_added = 0
     total_optional_attrs_removed = 0
     total_home_listing_descriptions_removed = 0
+    total_legacy_polyfills_removed = 0
 
     for file_path in iter_target_files(targets):
         (
@@ -157,6 +172,7 @@ def main() -> int:
             alts_added,
             optional_attrs_removed,
             home_listing_descriptions_removed,
+            legacy_polyfills_removed,
             changed,
         ) = apply_cleanup(
             file_path
@@ -165,6 +181,7 @@ def main() -> int:
         total_alts_added += alts_added
         total_optional_attrs_removed += optional_attrs_removed
         total_home_listing_descriptions_removed += home_listing_descriptions_removed
+        total_legacy_polyfills_removed += legacy_polyfills_removed
 
         if changed:
             files_changed += 1
@@ -174,6 +191,7 @@ def main() -> int:
                 f"(replacements={replacements_count}, alt_added={alts_added}, "
                 f"optional_attrs_removed={optional_attrs_removed}, "
                 f"home_listing_descriptions_removed={home_listing_descriptions_removed}, "
+                f"legacy_polyfills_removed={legacy_polyfills_removed}, "
                 "serialize=bs4+html5lib)"
             )
 
@@ -182,7 +200,8 @@ def main() -> int:
         f"{total_replacements} replacement(s), "
         f"{total_alts_added} alt attribute(s) added, "
         f"{total_optional_attrs_removed} optional attribute(s) removed, "
-        f"{total_home_listing_descriptions_removed} home listing description(s) removed "
+        f"{total_home_listing_descriptions_removed} home listing description(s) removed, "
+        f"{total_legacy_polyfills_removed} legacy polyfill(s) removed "
         f"across {files_changed} file(s)"
     )
     return 0

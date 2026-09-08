@@ -138,9 +138,9 @@ Et il ne reste plus qu’à flasher l’Arduino et faire un test.
 
 [cubicsdr.com](https://cubicsdr.com/){rel="nofollow"}
 
-[CubicSDR](https://cubicsdr.readthedocs.io/en/latest/introduction.html)
+[CubicSDR — Read the Docs](https://cubicsdr.readthedocs.io/en/latest/introduction.html)
 
-[CubicSDR — dernier build DMG (0.2.5)](https://github.com/cjcliffe/CubicSDR/releases/tag/0.2.5)
+[CubicSDR — dernier build avec DMG (0.2.5)](https://github.com/cjcliffe/CubicSDR/releases/tag/0.2.5)
 
 ![Cubic SDR][img_5]
 

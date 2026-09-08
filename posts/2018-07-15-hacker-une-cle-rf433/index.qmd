@@ -10,7 +10,7 @@ lang: fr
 layout: page
 lightbox: auto
 pagetitle: '{{< meta title >}}'
-title: Hacker une clé RF433
+title: Hacker une clé RF433 avec un adaptateur SDR
 ---
 
 ## But
@@ -162,3 +162,9 @@ Et il ne reste plus qu’à flasher l’Arduino et faire un test.
 ![SDR++][img_8]
 
 [img_8]: ./images/hacker-une-cle-rf433-008.jpg
+
+## À voir aussi
+
+[nooelec.com — Supported-SDR-Software]
+
+[nooelec.com — Supported-SDR-Software]: https://support.nooelec.com/hc/en-us/articles/360005243074-Supported-SDR-Software?utm_source=chatgpt.com

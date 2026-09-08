@@ -89,7 +89,7 @@ document.addEventListener("keydown", (event) => {
     // Otherwise assign keyboard shortcuts to prev-next buttons.
     const prevKeys = ["ArrowLeft"];
     const nextKeys = ["ArrowRight"];
-    const homeKeys = ["Escape"];
+    const homeKeys = ["§"];
 
     const prevLink = document.querySelector(".nav-page-home .pagination-link");
     const nextLink = document.querySelector(".nav-page-next .pagination-link");

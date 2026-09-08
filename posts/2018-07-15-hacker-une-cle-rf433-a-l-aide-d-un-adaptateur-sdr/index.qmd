@@ -1,7 +1,7 @@
 ---
 aliases:
-- /hacker-une-cle-rf433
-- /posts/2018-07-15-hacker-une-cle-rf433/
+  - /hacker-une-cle-rf433
+  - /posts/2018-07-15-hacker-une-cle-rf433/
 author: Nico
 categories: []
 date: 2018-07-15 15:28:00+02:00
@@ -10,7 +10,7 @@ image: ./images/hacker-une-cle-rf433-001.jpg
 lang: fr
 layout: page
 lightbox: auto
-pagetitle: '{{< meta title >}}'
+pagetitle: "{{< meta title >}}"
 title: Hacker une clé RF433 à l’aide d’un adaptateur SDR
 ---
 
@@ -30,19 +30,19 @@ Cet article m’a été inspiré par [la vidéo d’Andreas Spiess “How to Hac
 
 ## Matériel
 
--   SDR-Dongle: <http://s.click.aliexpress.com/e/bQ91w8QM>{rel="nofollow"} ou <http://bit.ly/2NcRMT2>{rel="nofollow"}
--   Raspberry Pi modèle 2 ou 3. On peut aussi utiliser URH sur Windows, Linux et sur Mac, donc le RPi est optionnel. À noter que l’adaptateur SDR que j’ai n’est pas reconnu par URH sur mon Mac et j’ai donc opté pour la solution RPi.
--   Un Arduino UNO ou équivalent
--   Un bouton
--   Un _breadboard_
--   Un [émetteur RF433][émetteur rf433]
--   Une [clé RF433][clé rf433] à copier (mais normalement vous devriez déjà avoir cet article)
+- SDR-Dongle: <http://s.click.aliexpress.com/e/bQ91w8QM>{rel="nofollow"} ou <http://bit.ly/2NcRMT2>{rel="nofollow"}
+- Raspberry Pi modèle 2 ou 3. On peut aussi utiliser URH sur Windows, Linux et sur Mac, donc le RPi est optionnel. À noter que l’adaptateur SDR que j’ai n’est pas reconnu par URH sur mon Mac et j’ai donc opté pour la solution RPi.
+- Un Arduino UNO ou équivalent
+- Un bouton
+- Un _breadboard_
+- Un [émetteur RF433][émetteur rf433]
+- Une [clé RF433][clé rf433] à copier (mais normalement vous devriez déjà avoir cet article)
 
 ## Installation d’URH
 
 Pour lire le signal d’origine, nous allons utiliser [le logiciel URH][urh github].
 
--   Si nécessaire, [installez Raspbian Stretch][installer raspbian stretch]
+- Si nécessaire, [installez Raspbian Stretch][installer raspbian stretch]
 
 ```bash
 sudo apt-get --assume-yes update
@@ -61,33 +61,33 @@ sudo pip3 install .
 
 ## Utilisation d’URH
 
--   Connecter l’adaptateur SDR.
+- Connecter l’adaptateur SDR.
 
 ![Raspberry Pi avec dongle SDR][img_1]
 
--   Dans l’interface graphique de Raspbian, ouvrir un terminal et taper la commande `urh`.
--   Dans la fenêtre qui s’ouvre, aller dans le menu `File/Record Signal...`.
--   Dans la nouvelle fenêtre, choisir l’adaptateur : `Device : RTL-SDR`.
--   Cliquer sur la flèche arrondie en regard de `Device Identifier`. L’identifiant de l’adaptateur doit d’afficher, par exemple : `Realtek RTL2838UHIDIR (SN: 00000001)`.
--   Laisser les autres options par défaut.
+- Dans l’interface graphique de Raspbian, ouvrir un terminal et taper la commande `urh`.
+- Dans la fenêtre qui s’ouvre, aller dans le menu `File/Record Signal...`.
+- Dans la nouvelle fenêtre, choisir l’adaptateur : `Device : RTL-SDR`.
+- Cliquer sur la flèche arrondie en regard de `Device Identifier`. L’identifiant de l’adaptateur doit d’afficher, par exemple : `Realtek RTL2838UHIDIR (SN: 00000001)`.
+- Laisser les autres options par défaut.
 
 ![Enregistrement d’un signal RF433 avec URH][img_2]
 
--   Cliquer sur le bouton `Start`.
--   Appuyer sur le bouton de la clé RF433.
--   Cliquer sur le bouton `Stop`. Il faut arrêter l’acquisition le plus rapidement possible car le fichier de résultats grandit à une vitesse vertigineuse. En plus, le buffer est rapidement saturé.
--   Cliquer sur `Save` et enregistrer le fichier pour une utilisation ultérieure.
--   Fermer la fenêtre d’acquisition. La fenêtre de traitement des données s’ouvre. Cette fenêtre peut être rappelée en ouvrant le fichier enregistré précédemment.
--   Cliquer sur `Modulation: ASK`. ASK = _Amplitude Shift Keying_.
--   Dans la partie sous le graphique, double-cliquer de façon à sélectionner une ligne. La partie correspondante du graphique est sélectionnée. Inversement, on peut sélectionner une partie du graphique et les chiffres correspondants seront automatiquement sélectionnés également.
--   On peut zoomer le graphique avec la roulette de la souris. La position du curseur de la souris modifie également le point central du zoom.
--   Évaluer quelle ligne de chiffres se répète le plus souvent et la copier avec le raccourci clavier `CTRL-C`.
+- Cliquer sur le bouton `Start`.
+- Appuyer sur le bouton de la clé RF433.
+- Cliquer sur le bouton `Stop`. Il faut arrêter l’acquisition le plus rapidement possible car le fichier de résultats grandit à une vitesse vertigineuse. En plus, le buffer est rapidement saturé.
+- Cliquer sur `Save` et enregistrer le fichier pour une utilisation ultérieure.
+- Fermer la fenêtre d’acquisition. La fenêtre de traitement des données s’ouvre. Cette fenêtre peut être rappelée en ouvrant le fichier enregistré précédemment.
+- Cliquer sur `Modulation: ASK`. ASK = _Amplitude Shift Keying_.
+- Dans la partie sous le graphique, double-cliquer de façon à sélectionner une ligne. La partie correspondante du graphique est sélectionnée. Inversement, on peut sélectionner une partie du graphique et les chiffres correspondants seront automatiquement sélectionnés également.
+- On peut zoomer le graphique avec la roulette de la souris. La position du curseur de la souris modifie également le point central du zoom.
+- Évaluer quelle ligne de chiffres se répète le plus souvent et la copier avec le raccourci clavier `CTRL-C`.
 
-    1110111011101000100010001000100011101110111010001000111010001000100010001110111010001000111010001
+  1110111011101000100010001000100011101110111010001000111010001000100010001110111010001000111010001
 
--   Il faut aussi noter la valeur `Bit Length`. Sur l’image ci-dessous, elle est de 276 µs. À d’autres endroits du signal cette valeur peut être légèrement différente. J’ai opté pour une valeur de 280 µs qui convient très bien.
--   Maintenant, on a les bits du signal (97 bits dans mon cas). Mais il faut encore évaluer combien de bits sont dans l’intervalle sans signal. Dans mon cas, il y en a 31, donc une période complète comprend 97 + 31 = 128 bits.
--   Il faut également ajouter les zéros au code copié. Dans mon cas, il y en a 31.
+- Il faut aussi noter la valeur `Bit Length`. Sur l’image ci-dessous, elle est de 276 µs. À d’autres endroits du signal cette valeur peut être légèrement différente. J’ai opté pour une valeur de 280 µs qui convient très bien.
+- Maintenant, on a les bits du signal (97 bits dans mon cas). Mais il faut encore évaluer combien de bits sont dans l’intervalle sans signal. Dans mon cas, il y en a 31, donc une période complète comprend 97 + 31 = 128 bits.
+- Il faut également ajouter les zéros au code copié. Dans mon cas, il y en a 31.
 
 ![Enregistrement d’un signal RF433 avec URH][img_3]
 
@@ -115,10 +115,10 @@ Et il ne reste plus qu’à flasher l’Arduino et faire un test.
 
 ## À voir aussi
 
--   <https://github.com/merbanan/rtl_433>
--   [RTL-SDR Blog V3 R820T2 RTL2832U 1PPM TCXO SMA Software Defined Radio (Dongle Only)](https://www.rtl-sdr.com/buy-rtl-sdr-dvb-t-dongles/)
--   <http://gqrx.dk/>
--   <https://airspy.com>
+- <https://github.com/merbanan/rtl_433>
+- [RTL-SDR Blog V3 R820T2 RTL2832U 1PPM TCXO SMA Software Defined Radio (Dongle Only)](https://www.rtl-sdr.com/buy-rtl-sdr-dvb-t-dongles/)
+- <http://gqrx.dk/>
+- <https://airspy.com>
 
 [img_1]: ./images/hacker-une-cle-rf433-001.jpg
 [img_2]: ./images/hacker-une-cle-rf433-002.jpg
@@ -132,7 +132,7 @@ Et il ne reste plus qu’à flasher l’Arduino et faire un test.
 [émetteur rf433]: https://fr.aliexpress.com/item/1Lot-1-pair-2pcs-RF-wireless-receiver-module-transmitter-module-Ordinary-super-regeneration-315-433MHZ-DC5V/968306683.html
 [clé rf433]: https://fr.aliexpress.com/item/Universal-2-Channels-Electric-Garage-Door-Cloning-Remote-Control-Key-Fob-433mhz/32816768549.html
 
-## Autres logiciels
+## Quelques outils de visualisation avec SDR
 
 ### CubicSDR
 
@@ -147,7 +147,6 @@ Et il ne reste plus qu’à flasher l’Arduino et faire un test.
 ![Cubic SDR][img_7]
 
 [img_5]: ./images/hacker-une-cle-rf433-005.jpg
-
 [img_7]: ./images/hacker-une-cle-rf433-007.jpg
 
 ### SDRangel
@@ -168,12 +167,34 @@ Et il ne reste plus qu’à flasher l’Arduino et faire un test.
 
 [img_8]: ./images/hacker-une-cle-rf433-008.jpg
 
-## À voir aussi
+| Outil                                                | Type                        | UI            | OS supporté           | Lien                                                                                                       |
+| ---------------------------------------------------- | --------------------------- | ------------- | --------------------- | ---------------------------------------------------------------------------------------------------------- |
+| NooElec — Supported-SDR-Software                     | Liste de logiciels SDR      | —             | Linux, macOS, Windows | <https://support.nooelec.com/hc/en-us/articles/360005243074-Supported-SDR-Software?utm_source=chatgpt.com> |
+| MathWorks — RTL-SDR Support (Communications Toolbox) | Support matériel MATLAB     | CLI/GUI       | Linux, macOS, Windows | <https://www.mathworks.com/hardware-support/rtl-sdr.html>                                                  |
+| SDR Touch — Radio en direct                          | Application mobile SDR      | GUI (Android) | Android               | <https://play.google.com/store/apps/details?id=marto.androsdr2>                                            |
+| Aerial TV — DVB-T receiver                           | Application mobile TV/DVB-T | GUI (Android) | Android               | <https://play.google.com/store/apps/details?id=info.martinmarinov.aerialtv>                                |
 
-[nooelec.com — Supported-SDR-Software](https://support.nooelec.com/hc/en-us/articles/360005243074-Supported-SDR-Software?utm_source=chatgpt.com)
+## Quelques outils de décodage LoRa avec SDR
 
-[Matlab — RTL-SDR Support from Communications Toolbox](https://www.mathworks.com/hardware-support/rtl-sdr.html)
+> N.B. Le même adaptateur SDR peut servir à décoder des trames **LoRa** (modulation CSS), en plus des signaux OOK/ASK/FSK traités par `rtl_433`. Les deux mondes sont disjoints : `rtl_433` ne touche pas au LoRa CSS, et les outils LoRa ne décodent ni OOK ni ASK/FSK. On bascule d'un outil à l'autre sur le même dongle, mais pas simultanément.
 
-[Android — SDR Touch - Radio en direct](https://play.google.com/store/apps/details?id=marto.androsdr2)
+| Outil                             | Type                         | UI  | OS supporté           | Lien                                       |
+| --------------------------------- | ---------------------------- | --- | --------------------- | ------------------------------------------ |
+| gr-lora_sdr (EPFL / TU Eindhoven) | GNU Radio 3.10, temps réel   | GUI | Linux, macOS, Windows | <https://github.com/tapparelj/gr-lora_sdr> |
+| gr-lora (rpp0)                    | GNU Radio, temps réel        | GUI | Linux, macOS          | <https://github.com/rpp0/gr-lora>          |
+| LoRaPHY                           | MATLAB                       | CLI | Linux, macOS, Windows | <https://github.com/jkadbear/LoRaPHY>      |
+| lora-phy (pyLoRaPHY)              | Python ≥ 3.8, hors-ligne     | CLI | Linux, macOS, Windows | <https://github.com/myzhang1029/pyLoRaPHY> |
+| lora-receiver                     | Python, streaming/hors-ligne | CLI | Linux, macOS, Windows | <https://pypi.org/project/lora-receiver/>  |
+| LoRa Craft (PentHertz)            | Python + GNU Radio           | CLI | Linux (prioritaire)   | <https://github.com/PentHertz/LoRa_Craft>  |
+| python-loranode                   | Python, avec gr-lora         | CLI | Linux                 | <https://github.com/rpp0/python-loranode>  |
 
-[Android — Aerial TV - DVB-T receiver](https://play.google.com/store/apps/details?id=info.martinmarinov.aerialtv)
+## Quelques outils de décodage de capteurs RF (OOK/ASK/FSK) avec SDR
+
+| Outil    | Type                                                               | UI  | OS supporté           | Lien                                  |
+| -------- | ------------------------------------------------------------------ | --- | --------------------- | ------------------------------------- |
+| rtl_433  | Décodage capteurs radio (TPMS, Wireless-MBus, météo…), OOK/ASK/FSK | CLI | Linux, macOS, Windows | <https://github.com/merbanan/rtl_433> |
+| URH      | Analyse/émission de signaux radio, capture et spoofing             | GUI | Linux, macOS, Windows | <https://github.com/jopohl/urh>       |
+| GQRX     | Spectre/audio SDR                                                  | GUI | Linux, macOS, Windows | <http://gqrx.dk/>                     |
+| CubicSDR | Spectre/audio SDR                                                  | GUI | Linux, macOS, Windows | <https://cubicsdr.com/>               |
+| SDRangel | Analyse spectre/multi-protocoles                                   | GUI | Linux, macOS, Windows | <https://www.sdrangel.org/>           |
+| SDR++    | Spectre/audio SDR                                                  | GUI | Linux, macOS, Windows | <https://www.sdrpp.org/>              |

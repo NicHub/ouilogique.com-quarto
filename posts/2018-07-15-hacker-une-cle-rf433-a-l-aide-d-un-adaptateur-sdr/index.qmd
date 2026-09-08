@@ -11,7 +11,7 @@ lang: fr
 layout: page
 lightbox: auto
 pagetitle: '{{< meta title >}}'
-title: Hacker une clé RF433 avec un adaptateur SDR
+title: Hacker une clé RF433 à l’aide d’un adaptateur SDR
 ---
 
 ## But

@@ -170,6 +170,10 @@ Et il ne reste plus qu’à flasher l’Arduino et faire un test.
 
 ## À voir aussi
 
-[nooelec.com — Supported-SDR-Software]
+[nooelec.com — Supported-SDR-Software](https://support.nooelec.com/hc/en-us/articles/360005243074-Supported-SDR-Software?utm_source=chatgpt.com)
 
-[nooelec.com — Supported-SDR-Software]: https://support.nooelec.com/hc/en-us/articles/360005243074-Supported-SDR-Software?utm_source=chatgpt.com
+[Matlab — RTL-SDR Support from Communications Toolbox](https://www.mathworks.com/hardware-support/rtl-sdr.html)
+
+[Android — SDR Touch - Radio en direct](https://play.google.com/store/apps/details?id=marto.androsdr2)
+
+[Android — Aerial TV - DVB-T receiver](https://play.google.com/store/apps/details?id=info.martinmarinov.aerialtv)

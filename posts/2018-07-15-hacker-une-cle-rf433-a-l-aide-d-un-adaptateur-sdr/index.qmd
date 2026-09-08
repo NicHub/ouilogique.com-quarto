@@ -198,3 +198,10 @@ Et il ne reste plus qu’à flasher l’Arduino et faire un test.
 | CubicSDR | Spectre/audio SDR                                                  | GUI | Linux, macOS, Windows | <https://cubicsdr.com/>               |
 | SDRangel | Analyse spectre/multi-protocoles                                   | GUI | Linux, macOS, Windows | <https://www.sdrangel.org/>           |
 | SDR++    | Spectre/audio SDR                                                  | GUI | Linux, macOS, Windows | <https://www.sdrpp.org/>              |
+
+## rtl_433
+
+```shell
+brew install rtl_433
+rtl_433 -f 868.3M
+```

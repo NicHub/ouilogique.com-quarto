@@ -204,6 +204,6 @@ Et il ne reste plus qu’à flasher l’Arduino et faire un test.
 ```shell
 brew install rtl_433
 rtl_433 -f 868.3M
-
-# !! Il faut utiliser -Y pour la station météo de Rolf
+rtl_433 -f 868.3M -Y classic
+# -Y classic — Mode de décodage classique (ancien comportement avant la v25.12). Par défaut depuis la v25.12, rtl_433 utilise un mode "flex" avec un sample rate plus bas (250k). Le flag -Y classic restaure les anciens décodeurs avec un sample rate de 1M, qui est plus fiable pour certains protocoles spécifiques à 868 MHz.
 ```

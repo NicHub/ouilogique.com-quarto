@@ -3,7 +3,7 @@ author: Nico
 categories: []
 date: 2026-09-17 16:00:00+02:00
 draft: false
-image: ./images/windows-tricks.png
+image: ./images/windows-tricks.webp
 image-alt: Illustration du logo Windows, d’un terminal, du raccourci Win + R et des outils système.
 lang: fr
 layout: page
@@ -16,4 +16,11 @@ title: Quelques astuces pour Windows
 
 ```{=html}
 <script src="https://gist.github.com/NicHub/9499ddd5d39a436532fa3edb1b0a4c00.js"></script>
+<script>
+  const gistFile = document.querySelector('.gist-file[data-color-mode="light"]');
+  if (gistFile) {
+    gistFile.dataset.colorMode = 'dark';
+    gistFile.dataset.darkTheme = 'dark';
+  }
+</script>
 ```

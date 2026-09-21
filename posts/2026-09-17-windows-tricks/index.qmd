@@ -20,40 +20,14 @@ title: Windows Tricks
 > To run the commands with admin privileges, hit `Ctrl+Shift+Enter` after typing them.
 >
 > See also the keyboard shortcuts:
-> https://support.microsoft.com/en-us/accessibility/windows/keyboard-shortcuts-in-windows
-> https://support.microsoft.com/fr-fr/accessibility/windows/keyboard-shortcuts-in-windows
-
-```shell
-## GET WINDOWS VERSION
-
-winver
-
-## GET SYSTEM INFORMATION
-
-msinfo32
-
-## SHUTDOWN / RESTART COMPUTER
-
-# https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/shutdown
-
-shutdown /p
-
-shutdown /r
-
-## OPEN DEVICE MANAGER
-
-devmgmt.msc
-
-## OPEN TASK MANAGER (CTRL+SHIFT+ESC)
-
-taskmgr
+> <https://support.microsoft.com/en-us/accessibility/windows/keyboard-shortcuts-in-windows>
+> <https://support.microsoft.com/fr-fr/accessibility/windows/keyboard-shortcuts-in-windows>
 
 ## TERMINALS
 
-# ⚠️ Use ✅ PowerShell (v7) not 🚫 Windows PowerShell (v5). They are different applications.
-# https://learn.microsoft.com/en-us/powershell/scripting/whats-new/differences-from-windows-powershell
+> ⚠️ Use ✅ PowerShell (v7) not 🚫 Windows PowerShell (v5). They are different applications.
+> <https://learn.microsoft.com/en-us/powershell/scripting/whats-new/differences-from-windows-powershell>
 
-```
 
 | Command          | Name                                                                                     |
 | ---------------- | ---------------------------------------------------------------------------------------- |
@@ -63,179 +37,248 @@ taskmgr
 | `powershell_ise` | 🚫 Windows PowerShell (5.1.26100.8457)                                                   |
 | `cmd`            | COMMAND.COM, cmd.exe, Command Prompt, Windows Command Processor, Command Processor Shell |
 
-```shell
-## GET TERMINAL VERSION
+## BASIC COMMANDS
 
-Get-Process -Id $PID | Select-Object -ExpandProperty Path; $PSVersionTable.PSVersion.ToString()
+**GET WINDOWS VERSION**
+:   ```powershell
+    winver
+    ```
 
-## SET “WINDOWS TERMINAL” AS DEFAULT
-## IN SYSTEM/ADVANCED
-## (OLD DEFAULT WAS “WINDOWS CONSOLE HOST”)
+**GET SYSTEM INFORMATION**
+:   ```powershell
+    msinfo32
+    ```
 
-WIN+R
-ms-settings:developers
-# search for terminal
+**SHUTDOWN / RESTART COMPUTER**
+:   <https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/shutdown>
+:   ```powershell
+    shutdown /p
+    shutdown /r
+    ```
 
-## KILL A TASK
+**OPEN DEVICE MANAGER**
+:   ```powershell
+    devmgmt.msc
+    ```
 
-taskkill /im filename.exe /t /f
+**OPEN TASK MANAGER (CTRL+SHIFT+ESC)**
+:   ```powershell
+    taskmgr
+    ```
 
-## OPEN FONT DIRECTORY
+**GET TERMINAL VERSION**
+:   ```powershell
+    Get-Process -Id $PID | Select-Object -ExpandProperty Path; $PSVersionTable.PSVersion.ToString()
+    ```
 
-%WINDIR%/Fonts
-shell:fonts
-%CSIDL_FONTS%
+**SET “WINDOWS TERMINAL” AS DEFAULT**
+:   IN SYSTEM/ADVANCED
+:   (OLD DEFAULT WAS “WINDOWS CONSOLE HOST”)
+:   search for terminal in:
+:   ```dosbat
+    ms-settings:developers
+    ```
 
-## OPEN USER DIRECTORY
+**KILL A TASK**
+:   ```powershell
+    taskkill /im filename.exe /t /f
+    ```
 
-%HOMEPATH%
-%USERPROFILE%
+**OPEN FONT DIRECTORY**
+:   ```dosbat
+    %WINDIR%/Fonts
+    shell:fonts
+    %CSIDL_FONTS%
+    ```
 
-## OPEN 64 BIT PROGRAM FILES DIRECTORY (x64)
+**OPEN USER DIRECTORY**
+:   ```dosbat
+    %HOMEPATH%
+    %USERPROFILE%
+    ```
 
-%PROGRAMFILES%
+**OPEN 64 BIT PROGRAM FILES DIRECTORY (x64)**
+:   ```dosbat
+    %PROGRAMFILES%
+    ```
 
-## OPEN 32 BIT PROGRAM FILES DIRECTORY (x86)
+**OPEN 32 BIT PROGRAM FILES DIRECTORY (x86)**
+:   ```dosbat
+    %PROGRAMFILES(X86)%
+    ```
 
-%PROGRAMFILES(X86)%
+**OPEN “OPTIONAL FEATURES” WINDOW**
+:   ```powershell
+    OptionalFeatures.exe
+    ```
 
-## OPEN “OPTIONAL FEATURES” WINDOW
+**OPEN WINDOWS EXPLORER**
+:   ```text
+    WIN+E
+    ```
 
-OptionalFeatures.exe
+**SHOW DESKTOP**
+:   ```text
+    WIN+D
+    ```
 
-## OPEN WINDOWS EXPLORER
+**SHOW SETTINGS**
+:   ```text
+    WIN+I
+    ```
 
-WIN+E
+**LOCK SCREEN**
+:   ```text
+    WIN+L
+    ```
 
-## SHOW DESKTOP
+**CHECK FOR UPDATES**
+:   ```text
+    ms-settings:windowsupdate
+    ```
 
-WIN+D
+**DISABLE ANNOYING SOUNDS**
+: click on 3rd tab “Sounds”
+: choose “No Sounds” in dropdown “Sound Schemes”
+:   ```powershell
+    mmsys.cpl
+    ```
 
-## SHOW SETTINGS
-
-WIN+I
-
-## LOCK SCREEN
-
-WIN+L
-
-## CHECK FOR UPDATES
-
-ms-settings:windowsupdate
-
-## DISABLE ANNOYING SOUNDS
-
-mmsys.cpl
-# click on 3rd tab “Sounds”
-# choose “No Sounds” in dropdown “Sound Schemes”
+**TOGGLE WIFI**
+:   ```dosbat
+    ncpa.cpl
+    ```
 
 ## INSTALL
 
-### NOTE: --scope machine => MSI, machine-wide scope (!= MSIX, current user scope only). Requires admin (elevated terminal).
-### À vérifier : --scope machine => changer pour : --installer-type wix
+: NOTE: --scope machine => MSI, machine-wide scope (!= MSIX, current user scope only). Requires admin (elevated terminal).
+: À vérifier : --scope machine => changer pour : --installer-type wix
+:   ```powershell
+    winget install -e --id Git.Git                          --scope machine --silent --accept-package-agreements --accept-source-agreements;
+    winget install -e --id GitHub.cli                       --scope machine --silent --accept-package-agreements --accept-source-agreements;
+    winget install -e --id Microsoft.VisualStudioCode       --scope machine --silent --accept-package-agreements --accept-source-agreements;
+    winget install -e --id Hugo.Hugo.Extended               --scope machine --silent --accept-package-agreements --accept-source-agreements;
+    winget install -e --id PedroAlbanese.QREncode           --scope machine --silent --accept-package-agreements --accept-source-agreements;
+    # winget install -e --id Sass.DartSass                    --scope machine --silent --accept-package-agreements --accept-source-agreements;
+    # winget install -e --id Sass.DartSass.Embedded           --scope machine --silent --accept-package-agreements --accept-source-agreements;
 
-winget install -e --id Git.Git                          --scope machine --silent --accept-package-agreements --accept-source-agreements;
-winget install -e --id GitHub.cli                       --scope machine --silent --accept-package-agreements --accept-source-agreements;
-winget install -e --id Microsoft.VisualStudioCode       --scope machine --silent --accept-package-agreements --accept-source-agreements;
-winget install -e --id Hugo.Hugo.Extended               --scope machine --silent --accept-package-agreements --accept-source-agreements;
-winget install -e --id PedroAlbanese.QREncode           --scope machine --silent --accept-package-agreements --accept-source-agreements;
-# winget install -e --id Sass.DartSass                    --scope machine --silent --accept-package-agreements --accept-source-agreements;
-# winget install -e --id Sass.DartSass.Embedded           --scope machine --silent --accept-package-agreements --accept-source-agreements;
+    git config --global user.name "NicHub on Windows";
+    git config --global user.email "nicolas.jeanmonod@gmail.com";
+    git clone https://github.com/ouilogique/enfants-kara.ch.git
 
-git config --global user.name "NicHub on Windows";
-git config --global user.email "nicolas.jeanmonod@gmail.com";
-git clone https://github.com/ouilogique/enfants-kara.ch.git
+    # set pwsh as default
+    # Win+R pwsh
+    # Ctrl+,
+    # Default profile: PowerShell (And not Windows PowerShell)
 
-# set pwsh as default
-# Win+R pwsh
-# Ctrl+,
-# Default profile: PowerShell (And not Windows PowerShell)
+    winget search Python # liste des versions Python disponibles
+    winget install -e --id Microsoft.WindowsTerminal              --scope machine --silent --accept-package-agreements --accept-source-agreements;
+    winget install -e --id Microsoft.PowerShell                   --scope machine --silent --accept-package-agreements --accept-source-agreements;
+    winget install -e --id Python.Python.3.14                     --scope machine --silent --accept-package-agreements --accept-source-agreements;
+    winget install -e --id OpenJS.NodeJS.LTS                      --scope machine --silent --accept-package-agreements --accept-source-agreements;
+    winget install -e --id Brave.Brave                            --scope machine --silent --accept-package-agreements --accept-source-agreements;
+    winget install -e --id Mozilla.Firefox.DeveloperEdition       --scope machine --silent --accept-package-agreements --accept-source-agreements;
+    winget install -e --id BurntSushi.ripgrep.MSVC                --scope machine --silent --accept-package-agreements --accept-source-agreements;
+    winget install -e --id sharkdp.fd                             --scope machine --silent --accept-package-agreements --accept-source-agreements;
+    winget install -e --id Neovim.Neovim                          --scope machine --silent --accept-package-agreements --accept-source-agreements;
+    winget install -e --id PuTTY.PuTTY                            --scope machine --silent --accept-package-agreements --accept-source-agreements;
+    winget install -e --id WiresharkFoundation.Wireshark          --scope machine --silent --accept-package-agreements --accept-source-agreements;
+    winget install -e --id EclipseFoundation.Mosquitto            --scope machine --silent --accept-package-agreements --accept-source-agreements;
+    winget install -e --id Rclone.Rclone                          --scope machine --silent --accept-package-agreements --accept-source-agreements;
+    winget install -e --id WinSCP.WinSCP                          --scope machine --silent --accept-package-agreements --accept-source-agreements;
+    winget install -e --id TimKosse.FileZilla.Client              --scope machine --silent --accept-package-agreements --accept-source-agreements;
+    winget install -e --id Microsoft.VisualStudio.2022.BuildTools --scope machine --silent --accept-package-agreements --accept-source-agreements;
+    & "C:\Program Files (x86)\Microsoft Visual Studio\Installer\setup.exe" modify `
+        --installPath "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools" `
+        --add Microsoft.VisualStudio.Workload.VCTools `
+        --add Microsoft.VisualStudio.Component.VC.Tools.ARM64 `
+        --includeRecommended `
+        --quiet `
+        --wait `
+        --norestart
+    npm install -g @openai/codex
+    ```
 
-winget search Python # liste des versions Python disponibles
-winget install -e --id Microsoft.WindowsTerminal              --scope machine --silent --accept-package-agreements --accept-source-agreements;
-winget install -e --id Microsoft.PowerShell                   --scope machine --silent --accept-package-agreements --accept-source-agreements;
-winget install -e --id Python.Python.3.14                     --scope machine --silent --accept-package-agreements --accept-source-agreements;
-winget install -e --id OpenJS.NodeJS.LTS                      --scope machine --silent --accept-package-agreements --accept-source-agreements;
-winget install -e --id Brave.Brave                            --scope machine --silent --accept-package-agreements --accept-source-agreements;
-winget install -e --id Mozilla.Firefox.DeveloperEdition       --scope machine --silent --accept-package-agreements --accept-source-agreements;
-winget install -e --id BurntSushi.ripgrep.MSVC                --scope machine --silent --accept-package-agreements --accept-source-agreements;
-winget install -e --id sharkdp.fd                             --scope machine --silent --accept-package-agreements --accept-source-agreements;
-winget install -e --id Neovim.Neovim                          --scope machine --silent --accept-package-agreements --accept-source-agreements;
-winget install -e --id PuTTY.PuTTY                            --scope machine --silent --accept-package-agreements --accept-source-agreements;
-winget install -e --id WiresharkFoundation.Wireshark          --scope machine --silent --accept-package-agreements --accept-source-agreements;
-winget install -e --id EclipseFoundation.Mosquitto            --scope machine --silent --accept-package-agreements --accept-source-agreements;
-winget install -e --id Rclone.Rclone                          --scope machine --silent --accept-package-agreements --accept-source-agreements;
-winget install -e --id WinSCP.WinSCP                          --scope machine --silent --accept-package-agreements --accept-source-agreements;
-winget install -e --id TimKosse.FileZilla.Client              --scope machine --silent --accept-package-agreements --accept-source-agreements;
-winget install -e --id Microsoft.VisualStudio.2022.BuildTools --scope machine --silent --accept-package-agreements --accept-source-agreements;
-& "C:\Program Files (x86)\Microsoft Visual Studio\Installer\setup.exe" modify `
-    --installPath "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools" `
-    --add Microsoft.VisualStudio.Workload.VCTools `
-    --add Microsoft.VisualStudio.Component.VC.Tools.ARM64 `
-    --includeRecommended `
-    --quiet `
-    --wait `
-    --norestart
-npm install -g @openai/codex
+**Upgrade all**
+:   ```powershell
+    winget upgrade --all
+    ```
 
-### Upgrade all
-winget upgrade --all
+**Upgrade single**
+:   ```powershell
+    winget upgrade --id Microsoft.VisualStudioCode --installer-type wix --silent --accept-package-agreements --accept-source-agreements
+    winget upgrade --id Microsoft.PowerShell --installer-type wix --silent --accept-package-agreements --accept-source-agreements
+    ```
 
-### Upgrade single
-winget upgrade --id Microsoft.VisualStudioCode --installer-type wix --silent --accept-package-agreements --accept-source-agreements
-winget upgrade --id Microsoft.PowerShell --installer-type wix --silent --accept-package-agreements --accept-source-agreements
+**OpenCode sans WSL (déconseillé)**
+:   ```powershell
+    npm config set allow-scripts=opencode-ai --location=user
+    npm install -g opencode-ai
+    ```
 
-## OpenCode sans WSL (déconseillé)
-
-npm config set allow-scripts=opencode-ai --location=user
-npm install -g opencode-ai
-
-```
-
-```shell
 ## WSL — Windows Subsystem for Linux
 
-### Requirements
+**Requirements**
+: Vérifier que la virtualisation est activée dans le BIOS.
+: Dans le BIOS, l’option s’appelle par ex. sur HP : `System Configuration/Virtualization Technology`.
+: Vérifier dans PowerShell :
+:   ```powershell
+    systeminfo | findstr /i "Virtualization"
+    ```
 
-# Vérifier que la virtualisation est activée dans le BIOS.
-# Dans le BIOS, l’option s’appelle par ex. sur HP : `System Configuration/Virtualization Technology`.
-# Vérifier dans PowerShell :
-systeminfo | findstr /i "Virtualization"
+**Install WSL**
+:   ```powershell
+    wsl --install
+    shutdown /r
+    wsl -l -v
+    wsl --install Ubuntu-26.04
+    ```
 
-### Install WSL
+**Usefull WSL commands**
+:   ```powershell
+    wsl                # démarre dans la distro par défaut (Ubuntu)
+    wsl -d Ubuntu      # démarre une distro précise
+    wsl -l -v          # liste les distros installées + leur version
+    wsl --update       # met à jour WSL
+    ```
 
-wsl --install
-shutdown /r
-wsl -l -v
-wsl --install Ubuntu-26.04
+## OTHER
 
-### Usefull WSL commands
+**Change default browser**
+:   ```text
+    ms-settings:defaultapps
+    ```
 
-wsl                # démarre dans la distro par défaut (Ubuntu)
-wsl -d Ubuntu      # démarre une distro précise
-wsl -l -v          # liste les distros installées + leur version
-wsl --update       # met à jour WSL
+**Change color theme**
+:   ```text
+    ms-settings:colors
+    ```
 
-## Change default browser
-ms-settings:defaultapps
+**Coreutils: 78 Linux commands for powershell**
+: <https://github.com/microsoft/coreutils>
+:   ```powershell
+    ls "C:\Program Files\coreutils\bin\"
+    ```
+: <https://youtu.be/Bg8FjRGuW_w?t=356>
+:   ```powershell
+    winget install Microsoft.Coreutils
+    ```
 
-## Change color theme
-ms-settings:colors
+**Install WSL1**
+:   ```powershell
+    dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+    ```
 
-## Coreutils: 78 Linux commands for powershell
-## https://github.com/microsoft/coreutils
-## ls "C:\Program Files\coreutils\bin\"
-## https://youtu.be/Bg8FjRGuW_w?t=356
-winget install Microsoft.Coreutils
+**Optional**
+:   ```powershell
+    dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+    ```
 
-## Install WSL1
-dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
-## Optional
-dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
-## Reboot
-# Télécharger le MSI officiel Microsoft (WSL redistribuable)
-curl.exe -L -o "$env:TEMP\wsl_update.msi" "https://aka.ms/wslupdate"
-Start-Process msiexec.exe -ArgumentList "/i","$env:TEMP\wsl_update.msi","/qn" -Wait
-wsl --set-default-version 1
-wsl --install -d Ubuntu
-```
+**Reboot**
+: Télécharger le MSI officiel Microsoft (WSL redistribuable)
+:   ```powershell
+    curl.exe -L -o "$env:TEMP\wsl_update.msi" "https://aka.ms/wslupdate"
+    Start-Process msiexec.exe -ArgumentList "/i","$env:TEMP\wsl_update.msi","/qn" -Wait
+    wsl --set-default-version 1
+    wsl --install -d Ubuntu
+    ```

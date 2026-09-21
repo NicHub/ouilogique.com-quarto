@@ -177,7 +177,7 @@ title: Windows Tricks
     winget install -e --id Python.Python.3.14                     --scope machine --silent --accept-package-agreements --accept-source-agreements;
     winget install -e --id OpenJS.NodeJS.LTS                      --scope machine --silent --accept-package-agreements --accept-source-agreements;
     winget install -e --id Brave.Brave                            --scope machine --silent --accept-package-agreements --accept-source-agreements;
-    winget install -e --id Mozilla.Firefox.DeveloperEdition       --scope machine --silent --accept-package-agreements --accept-source-agreements;
+    winget install -e --id Mozilla.Firefox.DeveloperEdition       --source winget --scope machine --silent --accept-package-agreements --accept-source-agreements;
     winget install -e --id BurntSushi.ripgrep.MSVC                --scope machine --silent --accept-package-agreements --accept-source-agreements;
     winget install -e --id sharkdp.fd                             --scope machine --silent --accept-package-agreements --accept-source-agreements;
     winget install -e --id Neovim.Neovim                          --scope machine --silent --accept-package-agreements --accept-source-agreements;

@@ -158,7 +158,7 @@ title: Windows Tricks
 : See [WinGet installation options](https://learn.microsoft.com/en-us/windows/package-manager/winget/install) and [Wireshark installation instructions](https://www.wireshark.org/docs/wsug_html_chunked/ChBuildInstallWinInstall.html).
 :   ```powershell
     winget install -e --id Git.Git                                --source winget --scope machine --silent --accept-package-agreements --accept-source-agreements;
-    winget install -e --id GitHub.cli                             --source winget --scope machine --silent --accept-package-agreements --accept-source-agreements;
+    winget install -e --id GitHub.cli                             --source winget --installer-type wix --scope machine --silent --accept-package-agreements --accept-source-agreements;
     winget install -e --id Microsoft.VisualStudioCode             --source winget --scope machine --silent --accept-package-agreements --accept-source-agreements;
     winget install -e --id Hugo.Hugo.Extended                     --source winget --scope machine --silent --accept-package-agreements --accept-source-agreements;
     winget install -e --id PedroAlbanese.QREncode                 --source winget --scope machine --silent --accept-package-agreements --accept-source-agreements;
@@ -174,19 +174,19 @@ title: Windows Tricks
 
     winget search Python # liste des versions Python disponibles
     winget install -e --id Microsoft.WindowsTerminal              --source winget --scope user --silent --accept-package-agreements --accept-source-agreements;
-    winget install -e --id Microsoft.PowerShell                   --source winget --scope machine --silent --accept-package-agreements --accept-source-agreements;
+    winget install -e --id Microsoft.PowerShell                   --source winget --installer-type wix --scope machine --silent --accept-package-agreements --accept-source-agreements;
     winget install -e --id Python.Python.3.14                     --source winget --scope machine --silent --accept-package-agreements --accept-source-agreements;
-    winget install -e --id OpenJS.NodeJS.LTS                      --source winget --scope machine --silent --accept-package-agreements --accept-source-agreements;
+    winget install -e --id OpenJS.NodeJS.LTS                      --source winget --installer-type wix --scope machine --silent --accept-package-agreements --accept-source-agreements;
     winget install -e --id Brave.Brave                            --source winget --scope machine --silent --accept-package-agreements --accept-source-agreements;
     winget install -e --id Mozilla.Firefox.DeveloperEdition       --source winget --scope machine --silent --accept-package-agreements --accept-source-agreements;
     winget install -e --id BurntSushi.ripgrep.MSVC                --source winget --scope machine --silent --accept-package-agreements --accept-source-agreements;
     winget install -e --id sharkdp.fd                             --source winget --scope machine --silent --accept-package-agreements --accept-source-agreements;
-    winget install -e --id Neovim.Neovim                          --source winget --scope machine --silent --accept-package-agreements --accept-source-agreements;
-    winget install -e --id PuTTY.PuTTY                            --source winget --scope machine --silent --accept-package-agreements --accept-source-agreements;
+    winget install -e --id Neovim.Neovim                          --source winget --installer-type wix --scope machine --silent --accept-package-agreements --accept-source-agreements;
+    winget install -e --id PuTTY.PuTTY                            --source winget --installer-type wix --scope machine --silent --accept-package-agreements --accept-source-agreements;
     winget install -e --id WiresharkFoundation.Wireshark          --source winget --scope machine --installer-type nullsoft --interactive --accept-package-agreements --accept-source-agreements;
     winget install -e --id EclipseFoundation.Mosquitto            --source winget --scope machine --silent --accept-package-agreements --accept-source-agreements;
     winget install -e --id Rclone.Rclone                          --source winget --scope machine --silent --accept-package-agreements --accept-source-agreements;
-    winget install -e --id WinSCP.WinSCP                          --source winget --scope machine --silent --accept-package-agreements --accept-source-agreements;
+    winget install -e --id WinSCP.WinSCP                          --source winget --installer-type wix --scope machine --silent --accept-package-agreements --accept-source-agreements;
     # FileZilla Client is unavailable in the winget source. Download: https://filezilla-project.org/download.php?type=client
     winget install -e --id Microsoft.VisualStudio.2022.BuildTools --source winget --scope machine --silent --accept-package-agreements --accept-source-agreements;
     & "C:\Program Files (x86)\Microsoft Visual Studio\Installer\setup.exe" modify `
@@ -207,7 +207,7 @@ title: Windows Tricks
 
 **Upgrade single**
 :   ```powershell
-    winget upgrade --id Microsoft.VisualStudioCode --installer-type wix --silent --accept-package-agreements --accept-source-agreements
+    winget upgrade --id Microsoft.VisualStudioCode --installer-type inno --silent --accept-package-agreements --accept-source-agreements
     winget upgrade --id Microsoft.PowerShell --installer-type wix --silent --accept-package-agreements --accept-source-agreements
     ```
 

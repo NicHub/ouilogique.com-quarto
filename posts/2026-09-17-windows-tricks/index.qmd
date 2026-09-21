@@ -188,15 +188,14 @@ title: Windows Tricks
     winget install -e --id Rclone.Rclone                          --source winget --scope machine --silent --accept-package-agreements --accept-source-agreements;
     winget install -e --id WinSCP.WinSCP                          --source winget --installer-type wix --scope machine --silent --accept-package-agreements --accept-source-agreements;
     # FileZilla Client is unavailable in the winget source. Download: https://filezilla-project.org/download.php?type=client
-    winget install -e --id Microsoft.VisualStudio.2022.BuildTools --source winget --scope machine --silent --accept-package-agreements --accept-source-agreements;
-    & "C:\Program Files (x86)\Microsoft Visual Studio\Installer\setup.exe" modify `
-        --installPath "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools" `
-        --add Microsoft.VisualStudio.Workload.VCTools `
-        --add Microsoft.VisualStudio.Component.VC.Tools.ARM64 `
-        --includeRecommended `
-        --quiet `
-        --wait `
-        --norestart
+    # New installation: run from PowerShell as administrator.
+    winget install -e --id Microsoft.VisualStudio.2022.BuildTools `
+        --source winget `
+        --scope machine `
+        --silent `
+        --accept-package-agreements `
+        --accept-source-agreements `
+        --override "--quiet --wait --norestart --add Microsoft.VisualStudio.Workload.VCTools --add Microsoft.VisualStudio.Component.VC.Tools.ARM64 --includeRecommended"
     npm install -g @openai/codex
     ```
 

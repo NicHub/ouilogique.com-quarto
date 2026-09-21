@@ -223,7 +223,11 @@ title: Windows Tricks
 : Dans le BIOS, l’option s’appelle par ex. sur HP : `System Configuration/Virtualization Technology`.
 : Vérifier dans PowerShell :
 :   ```powershell
-    systeminfo | findstr /i "Virtualization"
+    Get-CimInstance Win32_Processor |
+        Select-Object Name, VirtualizationFirmwareEnabled
+
+    Get-CimInstance Win32_ComputerSystem |
+        Select-Object HypervisorPresent
     ```
 
 **Install WSL**

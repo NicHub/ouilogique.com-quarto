@@ -23,19 +23,111 @@ title: Windows Tricks
 > <https://support.microsoft.com/en-us/accessibility/windows/keyboard-shortcuts-in-windows>
 > <https://support.microsoft.com/fr-fr/accessibility/windows/keyboard-shortcuts-in-windows>
 
-## TERMINALS
+## SHELLS & TERMINALS
 
-> ⚠️ Use ✅ PowerShell (v7) not 🚫 Windows PowerShell (v5). They are different applications.
+> ⚠️ A terminal hosts a shell: the terminal (Windows Terminal, Console Host) is the app that
+> displays and relays input, while the shell (pwsh, PowerShell, cmd) is the command interpreter.
+> Use ✅ PowerShell (v7) not 🚫 Windows PowerShell (v5). They are different applications.
 > <https://learn.microsoft.com/en-us/powershell/scripting/whats-new/differences-from-windows-powershell>
 
+**TERMINALS (EMULATORS)**
+
+| Command   | Name                                                                 |
+| --------- | -------------------------------------------------------------------- |
+| `wt`      | ✅ Windows Terminal (1.24.2607.10001)                                |
+| `conhost` | Windows Console Host (10.0.26100.8875) — host process for console apps |
+
+**SHELLS (COMMAND INTERPRETERS)**
 
 | Command          | Name                                                                                     |
 | ---------------- | ---------------------------------------------------------------------------------------- |
-| `pwsh`           | ✅ PowerShell (7.6.5)                                                                    |
-| `wt`             | 🚫 Windows PowerShell (5.1.26100.8457)                                                   |
-| `powershell`     | 🚫 Windows PowerShell (5.1.26100.8457)                                                   |
-| `powershell_ise` | 🚫 Windows PowerShell (5.1.26100.8457)                                                   |
+| `pwsh`           | ✅ PowerShell (7.6.6)                                                                     |
+| `powershell`     | 🚫 Windows PowerShell (5.1.26100.9444)                                                   |
+| `powershell_ise` | 🚫 Windows PowerShell ISE (5.1.26100.9444)                                               |
 | `cmd`            | COMMAND.COM, cmd.exe, Command Prompt, Windows Command Processor, Command Processor Shell |
+
+## GET THE VERSIONS
+
+**PowerShell (v5) version**
+:   ```powershell
+    powershell -NoProfile -Command '$PSVersionTable.PSVersion.ToString()'
+    ```
+:   ```powershell
+    # from inside a Windows PowerShell session:
+    $PSVersionTable.PSVersion
+    ```
+
+**PowerShell (v7) / pwsh version**
+:   ```powershell
+    pwsh --version
+    ```
+:   ```powershell
+    # from inside a pwsh session:
+    $PSVersionTable.PSVersion
+    ```
+
+**Windows Terminal (wt) version**
+: installed package version (as reported by Windows):
+:   ```powershell
+    (Get-AppxPackage Microsoft.WindowsTerminal).Version
+    ```
+: running application version:
+:   ```powershell
+    (Get-Process WindowsTerminal).MainModule.FileVersionInfo.ProductVersion
+    ```
+
+**conhost version**
+:   ```powershell
+    (Get-Item C:\Windows\System32\conhost.exe).VersionInfo.ProductVersion
+    ```
+
+## CUSTOM PROMPT — SHOW THE SHELL VERSION AFTER “PS”
+
+> The prompt is produced by a `prompt` function defined in the current-user host profile.
+> Find the file path with `$PROFILE.CurrentUserCurrentHost`, then reload with `. $PROFILE`
+> (or simply reopen the shell). The result dims the version in gray (`ESC[90m`).
+
+**OPEN THE PROFILE FILE**
+:   ```powershell
+    notepad $PROFILE.CurrentUserCurrentHost
+    ```
+
+**POWERSHELL (v7) PROFILE FILE**
+:   ```text
+    ~/Documents/PowerShell/Microsoft.PowerShell_profile.ps1
+    ```
+
+**WINDOWS POWERSHELL (v5) PROFILE FILE**
+:   ```text
+    ~/Documents/WindowsPowerShell/Microsoft.PowerShell_profile.ps1
+    ```
+
+**POWERSHELL (v7)**
+: `$PSStyle` (7.2+) is available — dim with `Foreground.BrightBlack`:
+:   ```powershell
+    function prompt {
+        "PS $($PSStyle.Foreground.BrightBlack)$($PSVersionTable.PSVersion)$($PSStyle.Reset) $($executionContext.SessionState.Path.CurrentLocation)>`n"
+    }
+    ```
+
+**WINDOWS POWERSHELL (v5)**
+: No `$PSStyle` and no `` `e `` escape — build the ANSI gray with `[char]27` (`ESC[90m`):
+:   ```powershell
+    function prompt {
+        "PS $([char]27)[90m$($PSVersionTable.PSVersion)$([char]27)[0m $($executionContext.SessionState.Path.CurrentLocation)>`n"
+    }
+    ```
+
+**RELOAD / TEST**
+:   ```powershell
+    . $PROFILE
+    ```
+
+**RESULT**
+:   ```text
+    PS 7.6.6 C:\Users\nico>
+    PS 5.1.26100.9444 C:\Users\nico>
+    ```
 
 ## BASIC COMMANDS
 

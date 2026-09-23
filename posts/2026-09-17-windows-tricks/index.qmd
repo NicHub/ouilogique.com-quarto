@@ -243,6 +243,7 @@ title: Windows Tricks
 
 ## INSTALL
 
+**NOTES**
 : `--scope machine` requests installation for all users; it does not select an installer format.
 : Approve the administrator prompt when required. `--silent` does not suppress this prompt.
 : Windows Terminal uses `--scope user`, as required by its MSIX package.
@@ -259,7 +260,7 @@ title: Windows Tricks
     git config --global user.email "nicolas.jeanmonod@gmail.com";
     git clone https://github.com/ouilogique/enfants-kara.ch.git
 
-    # set pwsh as default
+    # set pwsh as default
     # Win+R pwsh
     # Ctrl+,
     # Default profile: PowerShell (And not Windows PowerShell)

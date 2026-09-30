@@ -303,11 +303,12 @@ title: Windows Tricks
     winget upgrade --id Microsoft.PowerShell --installer-type wix --silent --accept-package-agreements --accept-source-agreements
     ```
 
-**OpenCode sans WSL (déconseillé)**
-:   ```powershell
-    npm config set allow-scripts=opencode-ai --location=user
-    npm install -g opencode-ai
-    ```
+## OPENCODE
+
+Installation et mise à jour du client `opencode` sous Windows et sous WSL : voir la page dédiée.
+
+👉 [**OPENCODE**](opencode.html) — le client embarqué dans l'app desktop (GUI), le
+redirecteur `opencode.cmd`, le port de service dédié et le retrait d'un ancien client.
 
 ## WSL — Windows Subsystem for Linux
 

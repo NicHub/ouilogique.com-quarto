@@ -1,0 +1,189 @@
+---
+title: "OPENCODE"
+pagetitle: "OpenCode"
+image: ../../images/og-image-1.png
+lang: fr
+layout: page
+toc: true
+toc-title: "Sur cette page"
+---
+
+## NOTES
+
+- Le client Windows et le client WSL sont deux installations indépendantes : ne pas les désynchroniser.
+- Le service de fond est partagé par tous les clients locaux du même utilisateur (port `49374` par défaut).
+- WSL2 expose le loopback WSL sur le localhost Windows : si les deux côtés utilisent le même port,
+  il y a conflit. Dédier un port au côté Windows.
+- La config est distincte : WSL `~/.config/opencode`, Windows `$env:USERPROFILE\.config\opencode`.
+- Les identifiants ne sont pas stockés dans des fichiers : après une installation fraîche,
+  re-autoriser les providers avec `/connect` dans le TUI.
+
+```powershell
+opencode service set port 49375
+opencode service status
+opencode api get /api/info
+```
+
+## INSTALLER LE CLIENT
+
+### Via npm (déconseillé)
+
+```powershell
+npm config set allow-scripts=opencode-ai --location=user
+npm install -g opencode-ai
+```
+
+### Via l'application desktop (GUI)
+
+L'application desktop installe son propre client et le met à jour toute seule. Plutôt que
+d'installer le client séparément, on réutilise le binaire embarqué dans l'app.
+
+L'app desktop est une application Electron : elle installe un menu *Application* avec
+*Check for Updates* et *Install CLI*, **mais uniquement sur macOS**. Sous Windows il n'y a pas
+de menu *Application*. Deux différences à connaître :
+
+- La mise à jour ne s'applique pas au simple redémarrage. Un bouton **Update** apparaît dans la
+  barre de titre de la fenêtre ; c'est lui qui déclenche l'installation de la version téléchargée.
+- `opencode upgrade` ne fonctionne pas sur une copie du binaire embarqué : il ne trouve pas de
+  méthode d'installation connue et journalise `update skipped: installation method not found`.
+
+Chercher le client embarqué et sa version :
+
+```powershell
+$app = "$env:LOCALAPPDATA\Programs\@opencodedesktop"
+Get-Content "$app\resources\opencode-cli.version"
+& "$app\resources\opencode-cli.exe" --version
+```
+
+Le client est stocké dans le dossier d'installation de l'app :
+
+```text
+~/AppData/Local/Programs/@opencodedesktop/resources/opencode-cli.exe
+~/AppData/Local/Programs/@opencodedesktop/resources/app-update.yml
+```
+
+Le fichier `app-update.yml` décrit la source des mises à jour automatiques :
+
+```yaml
+provider: generic
+url: https://opencode.ai/update/api/latest/desktop/opencode/
+channel: latest
+updaterCacheDirName: '@opencodedesktop-updater'
+```
+
+L'installeur de la nouvelle version est téléchargé dans le cache de l'updater et attend d'être
+appliqué :
+
+```text
+~/AppData/Local/@opencodedesktop-updater/pending/opencode-desktop-win-x64.exe
+```
+
+## REDIRECTEUR `opencode.cmd` (recommandé)
+
+Le binaire embarqué s'appelle `opencode-cli.exe`. Pour garder la commande `opencode` sans
+recopier le binaire à chaque mise à jour, créer un redirecteur dans un dossier du PATH qui
+pointe vers le chemin de l'app. Il suit alors automatiquement les versions.
+
+```powershell
+$shim = "$env:LOCALAPPDATA\Programs\opencode-cli"
+New-Item -ItemType Directory -Force $shim | Out-Null
+@'
+@echo off
+"%LOCALAPPDATA%\Programs\@opencodedesktop\resources\opencode-cli.exe" %*
+'@ | Set-Content -Path "$shim\opencode.cmd" -Encoding Ascii
+```
+
+Ajouter le dossier au PATH utilisateur (sans doublon) :
+
+```powershell
+$userPath = [Environment]::GetEnvironmentVariable("Path","User")
+$parts = $userPath -split ';' | Where-Object { $_ }
+if ($parts -notcontains $shim) {
+    [Environment]::SetEnvironmentVariable("Path", ($parts + $shim) -join ';', "User")
+}
+```
+
+Vérifier dans un **nouveau** terminal (un terminal ouvert avant la modification a hérité de
+l'ancien PATH) :
+
+```powershell
+(Get-Command opencode).Source
+opencode --version
+opencode api get /api/info
+```
+
+Résultat attendu :
+
+```text
+$env:LOCALAPPDATA\Programs\opencode-cli\opencode.cmd
+opencode v2.0.19
+```
+
+## COPIE DIRECTE (alternative)
+
+Recopier le binaire à la main après chaque mise à jour de l'app :
+
+```powershell
+Copy-Item "$env:LOCALAPPDATA\Programs\@opencodedesktop\resources\opencode-cli.exe" `
+          "$env:LOCALAPPDATA\Programs\opencode-cli\opencode.exe" -Force
+```
+
+Le fichier est verrouillé tant qu'un terminal l'exécute : fermer ces terminaux d'abord.
+
+## PATH : REDIRECTEUR OU CHEMIN DIRECT
+
+Ajouter directement le dossier `resources` de l'app au PATH supprime toute copie, mais la
+commande devient `opencode-cli` et non `opencode` :
+
+```powershell
+$userPath = [Environment]::GetEnvironmentVariable("Path","User")
+$userPath = ($userPath -split ';' | Where-Object { $_ -and $_ -notmatch 'opencode-cli$' }) -join ';'
+[Environment]::SetEnvironmentVariable("Path", "$userPath;$env:LOCALAPPDATA\Programs\@opencodedesktop\resources", "User")
+```
+
+Un lien symbolique vers le binaire est plus propre mais ne fonctionne pas sans droits
+d'administrateur ni mode développeur activé.
+
+## RETIRER UN ANCIEN CLIENT
+
+Un client installé précédemment (par ex. via le script `install`) peut rester dans
+`%LOCALAPPDATA%\Programs\opencode` et gagner la résolution du PATH selon l'ordre des entrées.
+Retirer l'entrée du PATH, puis le dossier :
+
+```powershell
+$old = "$env:LOCALAPPDATA\Programs\opencode"
+$userPath = [Environment]::GetEnvironmentVariable("Path","User")
+$parts = $userPath -split ';' | Where-Object { $_ -and $_.TrimEnd('\') -ine $old.TrimEnd('\') }
+[Environment]::SetEnvironmentVariable("Path", ($parts -join ';'), "User")
+Remove-Item -LiteralPath $old -Recurse -Force
+```
+
+Si la suppression échoue, un processus verrouille encore le fichier :
+
+```powershell
+Get-CimInstance Win32_Process -Filter "Name='opencode.exe'" |
+    Where-Object { $_.ExecutablePath -like "$old\opencode.exe" } |
+    Select-Object ProcessId, CommandLine
+```
+
+Une suppression différée ne nécessite pas les droits d'administrateur si on utilise `RunOnce` :
+
+```powershell
+New-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\RunOnce" `
+    -Name "OpenCodeRemoveOldCli" -PropertyType String -Force -Value (
+        'powershell -NoProfile -WindowStyle Hidden -Command "if (Test-Path ''{0}'') {{ Remove-Item -LiteralPath ''{0}'' -Recurse -Force }}"' -f $old
+    )
+```
+
+## AIDE-MÉMOIRE
+
+| Commande                    | Effet                                                       |
+| --------------------------- | ----------------------------------------------------------- |
+| `opencode`                  | Ouvre l'interface TUI dans le répertoire courant           |
+| `opencode --version`        | Version du client                                           |
+| `opencode service status`   | Affiche l'URL du service de fond                            |
+| `opencode service restart`  | Redémarre le service de fond                                |
+| `opencode api get /api/info` | Vérifie que l'API répond                                    |
+| `opencode mcp list`         | Liste les serveurs MCP configurés                           |
+| `opencode debug paths`      | Affiche les chemins de config, data, cache, base de données |
+| `opencode upgrade`          | Met à jour le client (indisponible sur une copie embarquée) |

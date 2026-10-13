@@ -93,12 +93,12 @@ title: Windows Tricks
     ```
 
 **POWERSHELL (v7) PROFILE FILE**
-:   ```text
+:   ```dosbat
     ~/Documents/PowerShell/Microsoft.PowerShell_profile.ps1
     ```
 
 **WINDOWS POWERSHELL (v5) PROFILE FILE**
-:   ```text
+:   ```dosbat
     ~/Documents/WindowsPowerShell/Microsoft.PowerShell_profile.ps1
     ```
 
@@ -124,7 +124,7 @@ title: Windows Tricks
     ```
 
 **RESULT**
-:   ```text
+:   ```dosbat
     PS 7.6.6 C:\Users\nico>
     PS 5.1.26100.9444 C:\Users\nico>
     ```
@@ -149,7 +149,7 @@ title: Windows Tricks
     ```
 
 **OPEN DEVICE MANAGER**
-:   ```powershell
+:   ```dosbat
     devmgmt.msc
     ```
 
@@ -205,34 +205,34 @@ title: Windows Tricks
     ```
 
 **OPEN WINDOWS EXPLORER**
-:   ```text
+:   ```dosbat
     WIN+E
     ```
 
 **SHOW DESKTOP**
-:   ```text
+:   ```dosbat
     WIN+D
     ```
 
 **SHOW SETTINGS**
-:   ```text
+:   ```dosbat
     WIN+I
     ```
 
 **LOCK SCREEN**
-:   ```text
+:   ```dosbat
     WIN+L
     ```
 
 **CHECK FOR UPDATES**
-:   ```text
+:   ```dosbat
     ms-settings:windowsupdate
     ```
 
 **DISABLE ANNOYING SOUNDS**
 : click on 3rd tab “Sounds”
 : choose “No Sounds” in dropdown “Sound Schemes”
-:   ```powershell
+:   ```dosbat
     mmsys.cpl
     ```
 
@@ -343,12 +343,12 @@ redirecteur `opencode.cmd`, le port de service dédié et le retrait d'un ancien
 ## OTHER
 
 **Change default browser**
-:   ```text
+:   ```dosbat
     ms-settings:defaultapps
     ```
 
 **Change color theme**
-:   ```text
+:   ```dosbat
     ms-settings:colors
     ```
 

@@ -1,0 +1,18 @@
+---
+author: Nico
+categories: []
+date: 2026-10-15 16:39:00+02:00
+draft: false
+image: ./images/on-off-symbol.webp
+image-alt: Symbole ON OFF
+lang: fr
+layout: page
+lightbox: auto
+pagetitle: '{{< meta title >}}'
+title: Symbole ON OFF
+---
+
+
+![Symboles IEC 60417 pour les états marche, arrêt, marche temporaire et veille.](./images/2026-10-15-symbole-on-off-001.webp)
+
+![Tableau de symboles graphiques ISO et IEC pour les équipements de bureau, notamment marche, arrêt, veille et pause.](./images/2026-10-15-symbole-on-off-002.webp)

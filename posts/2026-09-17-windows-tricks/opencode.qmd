@@ -8,6 +8,24 @@ toc: true
 toc-title: "Sur cette page"
 ---
 
+<h2 style="color:red">À lire en premier</h2>
+
+Install V2 with
+
+```powershell
+winget install --id Anomaly.OpenCode -e
+```
+
+or
+
+```powershell
+winget install --id Anomaly.OpenCode.Desktop -e
+```
+
+OpenCode upgrades Winget installations through WinGet.
+
+<h2 style="color:red; margin-top:1000px">Texte historique. À jeter ?</h2>
+
 ## NOTES
 
 - Le client Windows et le client WSL sont deux installations indépendantes : ne pas les désynchroniser.

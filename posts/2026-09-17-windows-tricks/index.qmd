@@ -12,22 +12,27 @@ pagetitle: '{{< meta title >}}'
 title: Windows Tricks
 ---
 
+## WINDOWS TRICKS
+
 > Former gist: <https://chk.me/4KijErW>
 >
-> Most of the commands below can be run from the “Run Box” with the shortcuts
+> Most of the commands below can be run from the “Run Box” with the shortcuts               \
 > `WIN+R` or `WIN+E CTRL+L`.
 >
-> To run the commands with admin privileges, hit `Ctrl+Shift+Enter` after typing them.
+> To run the commands with admin privileges, hit                                            \
+> `Ctrl+Shift+Enter` after typing them.
 >
-> See also the keyboard shortcuts:
-> <https://support.microsoft.com/en-us/accessibility/windows/keyboard-shortcuts-in-windows>
+> See also the keyboard shortcuts:                                                          \
+> <https://support.microsoft.com/en-us/accessibility/windows/keyboard-shortcuts-in-windows> \
 > <https://support.microsoft.com/fr-fr/accessibility/windows/keyboard-shortcuts-in-windows>
+
 
 ## SHELLS & TERMINALS
 
-> ⚠️ A terminal hosts a shell: the terminal (Windows Terminal, Console Host) is the app that
-> displays and relays input, while the shell (pwsh, PowerShell, cmd) is the command interpreter.
+> ⚠️ A terminal hosts a shell: the terminal (Windows Terminal, Console Host) is the app that displays and relays input, while the shell (pwsh, PowerShell, cmd) is the command interpreter.
+>
 > Use ✅ PowerShell (v7) not 🚫 Windows PowerShell (v5). They are different applications.
+>
 > <https://learn.microsoft.com/en-us/powershell/scripting/whats-new/differences-from-windows-powershell>
 
 **TERMINALS (EMULATORS)**

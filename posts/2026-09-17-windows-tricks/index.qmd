@@ -72,11 +72,11 @@ title: Windows Tricks
     ```
 
 **Windows Terminal (wt) version**
-: installed package version (as reported by Windows):
+:   installed package version (as reported by Windows):
 :   ```powershell
     (Get-AppxPackage Microsoft.WindowsTerminal).Version
     ```
-: running application version:
+:   running application version:
 :   ```powershell
     (Get-Process WindowsTerminal).MainModule.FileVersionInfo.ProductVersion
     ```
@@ -108,7 +108,7 @@ title: Windows Tricks
     ```
 
 **POWERSHELL (v7)**
-: `$PSStyle` (7.2+) is available — dim with `Foreground.BrightBlack`:
+:   `$PSStyle` (7.2+) is available — dim with `Foreground.BrightBlack`:
 :   ```powershell
     function prompt {
         "PS $($PSStyle.Foreground.BrightBlack)$($PSVersionTable.PSVersion)$($PSStyle.Reset) $($executionContext.SessionState.Path.CurrentLocation)>`n"
@@ -116,7 +116,7 @@ title: Windows Tricks
     ```
 
 **WINDOWS POWERSHELL (v5)**
-: No `$PSStyle` and no `` `e `` escape — build the ANSI gray with `[char]27` (`ESC[90m`):
+:   No `$PSStyle` and no `` `e `` escape — build the ANSI gray with `[char]27` (`ESC[90m`):
 :   ```powershell
     function prompt {
         "PS $([char]27)[90m$($PSVersionTable.PSVersion)$([char]27)[0m $($executionContext.SessionState.Path.CurrentLocation)>`n"

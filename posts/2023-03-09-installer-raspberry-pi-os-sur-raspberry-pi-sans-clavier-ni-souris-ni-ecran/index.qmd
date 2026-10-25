@@ -581,6 +581,50 @@ sudo udisksctl power-off --block-device /dev/sda
 
 Pour activer ou désactiver les différentes interfaces réseaux, on peut utiliser `nmtui`.
 
+### Fiabiliser la reconnexion au WiFi
+
+Sur un Raspberry Pi, il peut arriver que le WiFi ne se reconnecte pas, ou
+qu'il mette longtemps à se reconnecter, après une perte momentanée du signal.
+Avec NetworkManager, on peut demander une reconnexion automatique permanente et
+désactiver l'économie d'énergie de l'interface WiFi. Cette dernière peut
+parfois perturber la reconnexion.
+
+Il faut d'abord retrouver le nom du profil NetworkManager associé au SSID :
+
+```bash
+nmcli connection show
+```
+
+Dans l'exemple ci-dessous, le SSID est `nicophone2` et le profil s'appelle
+`netplan-wlan0-nicophone2` :
+
+```bash
+sudo nmcli connection modify 'netplan-wlan0-nicophone2' \
+  connection.autoconnect yes \
+  connection.autoconnect-retries 0 \
+  802-11-wireless.powersave 2
+```
+
+La valeur `0` signifie que NetworkManager réessaie indéfiniment, tandis que la
+valeur `2` désactive l'économie d'énergie WiFi. Pour appliquer immédiatement
+les changements :
+
+```bash
+sudo nmcli connection down 'netplan-wlan0-nicophone2'
+sudo nmcli connection up 'netplan-wlan0-nicophone2'
+```
+
+On peut vérifier la configuration et l'état de l'interface avec :
+
+```bash
+nmcli -f connection.autoconnect,connection.autoconnect-retries,802-11-wireless.powersave \
+  connection show 'netplan-wlan0-nicophone2'
+nmcli device status
+```
+
+Ces réglages sont enregistrés dans le profil NetworkManager et restent donc
+actifs après un redémarrage.
+
 ## À voir aussi
 
 -   <https://www.raspberrypi.com/news/raspberry-pi-bullseye-update-april-2022/>

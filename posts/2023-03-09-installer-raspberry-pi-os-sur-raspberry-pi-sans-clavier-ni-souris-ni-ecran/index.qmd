@@ -279,6 +279,250 @@ Par exemple RealVNC :
   `bash /System/Library/CoreServices/Applications/Screen\ Sharing.app`
 
 
+## RustDesk
+
+RustDesk est une alternative à VNC pour prendre le contrôle d’un Raspberry Pi à distance.
+Il peut démarrer avec le système et fonctionner sans qu’une personne soit présente devant la machine, à condition de préparer correctement la session graphique et le mot de passe permanent.
+
+Dans ce contexte, _headless_ signifie sans clavier, souris ni écran, mais avec une session graphique démarrée automatiquement : RustDesk doit avoir un bureau à capturer.
+
+> Édit du 2026-11-12 : ajout de cette section.
+> Les commandes sont prévues pour RustDesk 1.5.x.
+
+### Installation
+
+Installer le paquet Debian ARM64 officiel depuis les releases GitHub :
+<https://github.com/rustdesk/rustdesk/releases>.
+Remplacer `<version>` par la version souhaitée, par exemple `1.5.3`.
+
+```bash
+cd /tmp
+curl -LO https://github.com/rustdesk/rustdesk/releases/download/<version>/rustdesk-<version>-aarch64.deb
+dpkg-deb -f rustdesk-<version>-aarch64.deb Package Version Architecture
+sudo dpkg -i rustdesk-<version>-aarch64.deb
+sudo apt-get --fix-broken install
+rustdesk --version
+```
+
+Le paquet installe et active normalement le service système.
+Vérifier qu’il est bien démarré et activé au boot :
+
+```bash
+sudo systemctl enable --now rustdesk.service
+systemctl status rustdesk.service
+```
+
+### Session graphique et démarrage automatique
+
+RustDesk a besoin d’une session graphique pour capturer l’écran.
+Sur un Raspberry Pi sans écran, il faut donc que le système démarre automatiquement sur le bureau, même si aucun moniteur n’est branché.
+Ne pas désactiver l’interface graphique comme suggéré dans la section “Sélection des interfaces utilisateurs” : RustDesk en a besoin pour fonctionner.
+
+Activer l’ouverture de session automatique avec `raspi-config` :
+
+```bash
+sudo raspi-config
+# 1 System Options
+# S5 Boot / Auto Login
+# Desktop Autologin
+```
+
+Ou vérifier la configuration de LightDM :
+
+```bash
+sudo nano /etc/lightdm/lightdm.conf
+```
+
+```conf
+autologin-user=pi
+# Wayland
+# autologin-session=rpd-labwc
+# X11, plus fiable pour RustDesk
+autologin-session=rpd-x
+```
+
+Pour un accès sans supervision, la session X11 `rpd-x` est généralement plus fiable que Wayland.
+RustDesk recommande d’ailleurs X11 lorsque le support de Wayland pose problème.
+
+### Forcer une sortie HDMI sans écran
+
+Sans moniteur branché, le noyau peut ne détecter aucune sortie HDMI.
+RustDesk n’a alors aucun écran à capturer.
+
+Sur un Raspberry Pi 4, on peut forcer les sorties HDMI avec le paramètre `vc4.force_hotplug` dans `/boot/firmware/cmdline.txt` :
+
+```bash
+sudo nano /boot/firmware/cmdline.txt
+```
+
+Ajouter à la fin de la ligne, sans passer à la ligne :
+
+```text
+vc4.force_hotplug=3
+```
+
+La valeur `3` force les deux sorties HDMI (`1` pour HDMI0, `2` pour HDMI1).
+Redémarrer le Raspberry, puis vérifier les sorties détectées :
+
+```bash
+# Sous Wayland
+wlr-randr
+
+# Sous X11
+xrandr
+```
+
+Si nécessaire, installer `wlr-randr` :
+
+```bash
+sudo apt-get --assume-yes install wlr-randr
+```
+
+### Identifiant et mot de passe permanent
+
+L’identifiant RustDesk est attribué par le serveur rendez-vous.
+Le récupérer avec :
+
+```bash
+DISPLAY=:0 XDG_RUNTIME_DIR=/run/user/$(id -u) rustdesk --get-id
+```
+
+Le mot de passe temporaire change à chaque redémarrage : il n’est pas adapté à un accès sans supervision.
+Utiliser le mot de passe permanent, qui peut être défini depuis l’interface graphique :
+“Réglages” → “Sécurité” → “Mot de passe permanent”.
+
+Il peut aussi être défini en ligne de commande, avec les privilèges root :
+
+```bash
+sudo env DISPLAY=:0 XDG_RUNTIME_DIR=/run/user/$(id -u) \
+  rustdesk --password '<mot-de-passe>'
+```
+
+Utiliser un mot de passe long et unique.
+Ne jamais publier l’identifiant, le mot de passe ou la clé publique d’un serveur RustDesk personnel.
+
+Si vous utilisez un serveur RustDesk personnel, renseigner son adresse et sa clé publique dans les réglages réseau de RustDesk.
+Dans cet article, les valeurs sont volontairement génériques :
+
+```text
+Serveur ID : rustdesk.example.com
+Serveur relais : rustdesk.example.com
+Clé publique : <clé-publique>
+```
+
+### Wayland : éviter le dialogue de sélection d’écran
+
+Cette partie ne concerne que la session Wayland (`rpd-labwc`).
+Sous Wayland, RustDesk passe par `xdg-desktop-portal`.
+Par défaut, le portail demande localement quel écran partager, ce qui bloque un accès sans supervision.
+
+Avec `xdg-desktop-portal-wlr`, on peut sélectionner automatiquement une sortie :
+
+```bash
+mkdir -p ~/.config/xdg-desktop-portal-wlr
+nano ~/.config/xdg-desktop-portal-wlr/config
+```
+
+```conf
+[screencast]
+chooser_type=none
+output_name=HDMI-A-1
+```
+
+Remplacer `HDMI-A-1` par le nom retourné par `wlr-randr`.
+Puis redémarrer les services du portail :
+
+```bash
+XDG_RUNTIME_DIR=/run/user/$(id -u) \
+DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u)/bus \
+systemctl --user restart xdg-desktop-portal-wlr xdg-desktop-portal
+```
+
+Exécuter cette commande avec l’utilisateur du bureau, pas avec `sudo`.
+Si le dialogue revient ou si la capture échoue, passer la session en X11 (`rpd-x`).
+Sous X11, RustDesk capture directement l’écran et n’utilise pas le portail Wayland.
+
+### Résolution en mode headless
+
+Sans EDID, les sorties HDMI ne proposent souvent que des modes VESA, par exemple `1024x768`.
+Pour forcer une résolution plus élevée, ajouter le mode à la ligne de commande du noyau :
+
+```bash
+sudo nano /boot/firmware/cmdline.txt
+```
+
+Ajouter à la fin de la ligne :
+
+```text
+video=HDMI-A-1:1920x1080@60e
+```
+
+La ligne complète peut ressembler à ceci :
+
+```text
+... vc4.force_hotplug=3 video=HDMI-A-1:1920x1080@60e
+```
+
+Redémarrer, puis vérifier avec `wlr-randr` ou `xrandr`.
+
+On peut aussi appliquer le mode à chaud sous Wayland :
+
+```bash
+wlr-randr --output HDMI-A-1 --custom-mode 1920x1080@60
+```
+
+Le `@60` est important : sans lui, le mode peut être ignoré.
+Pour le réappliquer à chaque ouverture de session, ajouter cette commande dans un fichier d’autostart XDG, par exemple :
+
+```conf
+# ~/.config/autostart/rustdesk-resolution.desktop
+[Desktop Entry]
+Type=Application
+Name=RustDesk resolution
+Exec=/usr/bin/wlr-randr --output HDMI-A-1 --custom-mode 1920x1080@60
+Terminal=false
+NoDisplay=true
+```
+
+### Vérification et dépannage
+
+Après un redémarrage, vérifier que le service est actif et que la connexion fonctionne sans intervention locale :
+
+```bash
+systemctl status rustdesk.service
+journalctl -u rustdesk.service -n 50
+tail -f ~/.local/share/logs/RustDesk/server/rustdesk_rCURRENT.log
+```
+
+Tests utiles :
+
+```bash
+rustdesk --version
+pgrep -a rustdesk
+ss -lnup | grep 2111
+```
+
+Quelques causes fréquentes d’écran noir ou de connexion impossible :
+
+-   Aucune session graphique n’a démarré : vérifier l’autologin et la session LightDM.
+-   Aucune sortie HDMI n’est détectée : vérifier `vc4.force_hotplug=3` et `wlr-randr` ou `xrandr`.
+-   Le portail Wayland attend une sélection locale : configurer `chooser_type=none`.
+-   L’écran est verrouillé par un économiseur d’écran.
+-   Le mot de passe permanent n’est pas défini.
+
+Ne pas lancer `rustdesk --help` en SSH : cela démarre l’interface graphique et bloque la commande.
+Utiliser `rustdesk --version` ou `rustdesk --get-id`.
+
+Les erreurs HTTP sur le port `21114` (`api/heartbeat`, `api/sysinfo`) sont souvent non bloquantes tant que la connexion au serveur rendez-vous fonctionne.
+
+### Sécurité
+
+-   Utiliser un mot de passe permanent long et unique.
+-   Ne pas publier l’identifiant RustDesk ni le mot de passe.
+-   Ne pas exposer directement le Raspberry sur Internet sans nécessité.
+-   Privilégier un accès via VPN, par exemple Tailscale, ou restreindre l’accès au réseau local.
+-   Maintenir RustDesk et le système à jour.
+
 ## Enlever les programmes inutiles
 
 Enfin, inutiles pour moi...

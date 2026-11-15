@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<tt xml:lang="fr" xmlns="http://www.w3.org/ns/ttml" xmlns:ttm="http://www.w3.org/ns/ttml#metadata" xmlns:tts="http://www.w3.org/ns/ttml#styling" xmlns:ttp="http://www.w3.org/ns/ttml#parameter" ttp:profile="http://www.w3.org/TR/profile/sdp-us" >
+<head>
+<styling>
+<style xml:id="s1" tts:textAlign="center" tts:extent="90% 90%" tts:origin="5% 5%" tts:displayAlign="after"/>
+<style xml:id="s2" tts:fontSize=".72c" tts:backgroundColor="black" tts:color="white"/>
+</styling>
+<layout>
+<region xml:id="r1" style="s1"/>
+</layout>
+</head>
+<body region="r1">
+<div>
+<p begin="00:00:00.560" end="00:00:04.640" style="s2">Depuis le 30 septembre, dans quatre pays</p>
+<p begin="00:00:02.680" end="00:00:06.920" style="s2">du monde, Android ne fonctionne plus</p>
+<p begin="00:00:04.640" end="00:00:09.680" style="s2">comme il a fonctionné pendant 17 ans. Au</p>
+<p begin="00:00:06.920" end="00:00:11.680" style="s2">Brésil, en Indonésie, à Singapour et en</p>
+<p begin="00:00:09.680" end="00:00:13.680" style="s2">Thaïlande, pour installer une appli sur</p>
+<p begin="00:00:11.680" end="00:00:15.360" style="s2">un téléphone Android certifié, la</p>
+<p begin="00:00:13.680" end="00:00:17.520" style="s2">personne qui l&#39;a créée doit avoir donné</p>
+<p begin="00:00:15.360" end="00:00:19.520" style="s2">à Google sa pièce d&#39;identité, son nom</p>
+<p begin="00:00:17.520" end="00:00:22.440" style="s2">légal, son adresse, son numéro de</p>
+<p begin="00:00:19.520" end="00:00:25.160" style="s2">téléphone et 25 dollars au passage. Et</p>
+<p begin="00:00:22.440" end="00:00:27.200" style="s2">en 2027, ça devient mondial. Donc la</p>
+<p begin="00:00:25.160" end="00:00:29.120" style="s2">France aussi. Ce n&#39;est pas une rumeur,</p>
+<p begin="00:00:27.200" end="00:00:31.040" style="s2">ce n&#39;est pas une fuite, c&#39;est Google qui</p>
+<p begin="00:00:29.120" end="00:00:33.000" style="s2">l&#39;a annoncé, c&#39;est écrit noir sur blanc</p>
+<p begin="00:00:31.040" end="00:00:34.880" style="s2">dans sa documentation développeur et tu</p>
+<p begin="00:00:33.000" end="00:00:36.640" style="s2">peux aller vérifier maintenant. Et</p>
+<p begin="00:00:34.880" end="00:00:38.280" style="s2">pendant que Google ferme la porte par le</p>
+<p begin="00:00:36.640" end="00:00:40.200" style="s2">haut, l&#39;Europe est en train de faire</p>
+<p begin="00:00:38.280" end="00:00:42.120" style="s2">autre chose par le bas. Et dans ce</p>
+<p begin="00:00:40.200" end="00:00:44.520" style="s2">dossier-là, la France est loin d&#39;être du</p>
+<p begin="00:00:42.120" end="00:00:46.440" style="s2">bon côté. Je vais t&#39;expliquer exactement</p>
+<p begin="00:00:44.520" end="00:00:48.240" style="s2">ce qui se passe avec les vrais chiffres,</p>
+<p begin="00:00:46.440" end="00:00:49.840" style="s2">sans en rajouter. Parce que sur ce</p>
+<p begin="00:00:48.240" end="00:00:51.880" style="s2">sujet, il y a beaucoup de vidéos qui</p>
+<p begin="00:00:49.840" end="00:00:54.720" style="s2">font peur pour rien et moi je veux juste</p>
+<p begin="00:00:51.880" end="00:00:54.720" style="s2">te donner les faits.</p>
+<p begin="00:00:55.400" end="00:00:59.240" style="s2">En août 2025, Google a annoncé la</p>
+<p begin="00:00:57.680" end="00:01:01.480" style="s2">vérification obligatoire des</p>
+<p begin="00:00:59.240" end="00:01:03.280" style="s2">développeurs. Le principe est simple.</p>
+<p begin="00:01:01.480" end="00:01:04.800" style="s2">Jusqu&#39;à maintenant, sur Android,</p>
+<p begin="00:01:03.280" end="00:01:07.400" style="s2">n&#39;importe qui pouvait télécharger un</p>
+<p begin="00:01:04.800" end="00:01:09.120" style="s2">fichier APK, le mettre sur son téléphone</p>
+<p begin="00:01:07.400" end="00:01:10.800" style="s2">et l&#39;installer. Sans demander la</p>
+<p begin="00:01:09.120" end="00:01:12.680" style="s2">permission à personne. Et c&#39;est</p>
+<p begin="00:01:10.800" end="00:01:15.160" style="s2">littéralement ce qui a toujours séparé</p>
+<p begin="00:01:12.680" end="00:01:17.440" style="s2">Android de l&#39;iPhone. Ton téléphone, tu y</p>
+<p begin="00:01:15.160" end="00:01:19.120" style="s2">mettais ce que tu voulais. Ça, c&#39;est en</p>
+<p begin="00:01:17.440" end="00:01:21.160" style="s2">train de se terminer. Depuis le</p>
+<p begin="00:01:19.120" end="00:01:23.240" style="s2">printemps, Google installe discrètement</p>
+<p begin="00:01:21.160" end="00:01:25.120" style="s2">sur ton téléphone, par vagues, via une</p>
+<p begin="00:01:23.240" end="00:01:26.880" style="s2">mise à jour des services système, un</p>
+<p begin="00:01:25.120" end="00:01:29.280" style="s2">composant qui s&#39;appelle Android</p>
+<p begin="00:01:26.880" end="00:01:31.160" style="s2">Developer Verifier. Il arrive sur tous</p>
+<p begin="00:01:29.280" end="00:01:32.960" style="s2">les appareils sous Android 8 ou plus</p>
+<p begin="00:01:31.160" end="00:01:34.720" style="s2">récents. Donc en gros, tous ceux qui</p>
+<p begin="00:01:32.960" end="00:01:37.200" style="s2">tournent aujourd&#39;hui. Chez nous, pour</p>
+<p begin="00:01:34.720" end="00:01:38.880" style="s2">l&#39;instant, il dort. Il ne fait rien. Il</p>
+<p begin="00:01:37.200" end="00:01:40.640" style="s2">est juste mis en place pour que le jour</p>
+<p begin="00:01:38.880" end="00:01:42.880" style="s2">où Google l&#39;active, il fonctionne</p>
+<p begin="00:01:40.640" end="00:01:44.840" style="s2">partout en même temps. Et depuis le 30</p>
+<p begin="00:01:42.880" end="00:01:46.800" style="s2">septembre, dans ces quatre pays, il</p>
+<p begin="00:01:44.840" end="00:01:48.800" style="s2">s&#39;est réveillé. Les applis installées</p>
+<p begin="00:01:46.800" end="00:01:51.280" style="s2">depuis le Play Store, le Galaxy Store de</p>
+<p begin="00:01:48.800" end="00:01:53.760" style="s2">Samsung, le Store de Xiaomi, celui</p>
+<p begin="00:01:51.280" end="00:01:55.080" style="s2">d&#39;Oppo, de Vivo ou de Honor, doivent</p>
+<p begin="00:01:53.760" end="00:01:57.840" style="s2">être enregistrées au nom d&#39;un</p>
+<p begin="00:01:55.080" end="00:02:01.092" style="s2">développeur vérifié. Prochaine étape, le</p>
+<p begin="00:01:57.840" end="00:02:02.612" style="s2">monde entier en 2027. Maintenant, soyons</p>
+<p begin="00:02:01.092" end="00:02:03.796" style="s2">honnêtes. Google ne ment pas</p>
+<p begin="00:02:02.612" end="00:02:04.052" style="s2">complètement sur la raison.</p>
+<p begin="00:02:03.796" end="00:02:06.052" style="s2">[musique]</p>
+<p begin="00:02:04.052" end="00:02:08.012" style="s2">L&#39;argument, c&#39;est les arnaques et c&#39;est</p>
+<p begin="00:02:06.052" end="00:02:09.452" style="s2">un vrai problème. Il y a des gens qui se</p>
+<p begin="00:02:08.012" end="00:02:10.852" style="s2">font vider leur compte en banque parce</p>
+<p begin="00:02:09.452" end="00:02:13.092" style="s2">qu&#39;ils ont installé une fausse appli</p>
+<p begin="00:02:10.852" end="00:02:15.012" style="s2">bancaire, un APK qui se faisait passer</p>
+<p begin="00:02:13.092" end="00:02:16.612" style="s2">pour leur vraie banque. Et ce n&#39;est pas</p>
+<p begin="00:02:15.012" end="00:02:18.092" style="s2">un hasard si les quatre premiers pays</p>
+<p begin="00:02:16.612" end="00:02:20.492" style="s2">choisis sont des pays où ce type</p>
+<p begin="00:02:18.092" end="00:02:22.532" style="s2">d&#39;arnaque explose. Autre point à dire</p>
+<p begin="00:02:20.492" end="00:02:24.652" style="s2">clairement, les applis non vérifiées ne</p>
+<p begin="00:02:22.532" end="00:02:26.332" style="s2">sont pas totalement bloquées. Google a</p>
+<p begin="00:02:24.652" end="00:02:28.812" style="s2">prévu un parcours avancé pour les</p>
+<p begin="00:02:26.332" end="00:02:30.652" style="s2">utilisateurs expérimentés avec plusieurs</p>
+<p begin="00:02:28.812" end="00:02:32.132" style="s2">étapes de sécurité et il reste</p>
+<p begin="00:02:30.652" end="00:02:34.332" style="s2">l&#39;installation par câble depuis un</p>
+<p begin="00:02:32.132" end="00:02:36.772" style="s2">ordinateur. Il existe aussi des comptes</p>
+<p begin="00:02:34.332" end="00:02:38.692" style="s2">à distribution limitée, gratuits et sans</p>
+<p begin="00:02:36.772" end="00:02:40.332" style="s2">pièces d&#39;identité, mais limités à une</p>
+<p begin="00:02:38.692" end="00:02:42.452" style="s2">vingtaine d&#39;appareils. Donc</p>
+<p begin="00:02:40.332" end="00:02:44.452" style="s2">techniquement, on ne te l&#39;interdit pas.</p>
+<p begin="00:02:42.452" end="00:02:45.972" style="s2">On te le rend beaucoup plus compliqué.</p>
+<p begin="00:02:44.452" end="00:02:49.172" style="s2">Et entre les deux, il y a une vraie</p>
+<p begin="00:02:45.972" end="00:02:51.492" style="s2">différence. Sauf que pour 99 % des gens,</p>
+<p begin="00:02:49.172" end="00:02:52.972" style="s2">dans la pratique, ça revient au même.</p>
+<p begin="00:02:51.492" end="00:02:55.212" style="s2">Mais le vrai problème, ce n&#39;est pas</p>
+<p begin="00:02:52.972" end="00:02:57.372" style="s2">cette règle, c&#39;est ce qu&#39;elle installe.</p>
+<p begin="00:02:55.212" end="00:02:59.052" style="s2">À partir de maintenant, celui qui décide</p>
+<p begin="00:02:57.372" end="00:03:01.172" style="s2">quel logiciel a le droit de tourner sur</p>
+<p begin="00:02:59.052" end="00:03:03.052" style="s2">ton téléphone, c&#39;est Google.</p>
+<p begin="00:03:01.172" end="00:03:05.652" style="s2">Aujourd&#39;hui, la condition, c&#39;est une</p>
+<p begin="00:03:03.052" end="00:03:07.452" style="s2">pièce d&#39;identité. Demain, la condition,</p>
+<p begin="00:03:05.652" end="00:03:09.572" style="s2">c&#39;est la même entreprise qui la fixera,</p>
+<p begin="00:03:07.452" end="00:03:12.212" style="s2">toute seule. Et toi, tu n&#39;as plus ton</p>
+<p begin="00:03:09.572" end="00:03:12.212" style="s2">mot à dire.</p>
+<p begin="00:03:12.612" end="00:03:16.452" style="s2">Là, je vais être particulièrement précis</p>
+<p begin="00:03:15.212" end="00:03:19.132" style="s2">parce que c&#39;est le sujet où les gens</p>
+<p begin="00:03:16.452" end="00:03:21.812" style="s2">racontent le plus n&#39;importe quoi. Le 9</p>
+<p begin="00:03:19.132" end="00:03:23.852" style="s2">juillet 2026, le Parlement européen a</p>
+<p begin="00:03:21.812" end="00:03:26.812" style="s2">relancé ce qu&#39;on appelle Chat Control</p>
+<p begin="00:03:23.852" end="00:03:29.052" style="s2">1.0. Ce texte était mort. Il avait</p>
+<p begin="00:03:26.812" end="00:03:31.372" style="s2">expiré le 3 avril parce que les députés</p>
+<p begin="00:03:29.052" end="00:03:33.252" style="s2">l&#39;avaient rejeté deux fois en mars. Le</p>
+<p begin="00:03:31.372" end="00:03:35.372" style="s2">deuxième vote s&#39;était joué à une voix</p>
+<p begin="00:03:33.252" end="00:03:37.692" style="s2">près. Et il est revenu par une manœuvre</p>
+<p begin="00:03:35.372" end="00:03:39.332" style="s2">assez rare, une procédure d&#39;urgence qui</p>
+<p begin="00:03:37.692" end="00:03:41.692" style="s2">a renvoyé le dossier en deuxième</p>
+<p begin="00:03:39.332" end="00:03:42.702" style="s2">lecture. Et en deuxième lecture, les</p>
+<p begin="00:03:41.692" end="00:03:42.852" style="s2">règles changent.</p>
+<p begin="00:03:42.702" end="00:03:44.652" style="s2">[musique]</p>
+<p begin="00:03:42.852" end="00:03:46.532" style="s2">Pour bloquer le texte, une majorité</p>
+<p begin="00:03:44.652" end="00:03:50.132" style="s2">simple ne suffit plus. Il faut une</p>
+<p begin="00:03:46.532" end="00:03:53.292" style="s2">majorité absolue, 360 députés. Le jour</p>
+<p begin="00:03:50.132" end="00:03:55.292" style="s2">du vote, 314 ont voté pour le rejeter,</p>
+<p begin="00:03:53.292" end="00:03:57.172" style="s2">plus que ceux qui ont voté contre, mais</p>
+<p begin="00:03:55.292" end="00:03:58.732" style="s2">pas assez pour atteindre le seuil parce</p>
+<p begin="00:03:57.172" end="00:04:01.894" style="s2">que beaucoup n&#39;étaient tout simplement</p>
+<p begin="00:03:58.732" end="00:04:03.334" style="s2">pas là. Résultat, le texte avance et le</p>
+<p begin="00:04:01.894" end="00:04:05.134" style="s2">cadre pourrait s&#39;appliquer jusqu&#39;en</p>
+<p begin="00:04:03.334" end="00:04:06.854" style="s2">avril 2028.</p>
+<p begin="00:04:05.134" end="00:04:09.694" style="s2">Alors ce que c&#39;est et ce que ce n&#39;est</p>
+<p begin="00:04:06.854" end="00:04:11.214" style="s2">pas. Chat contrôle 1.0 autorise les</p>
+<p begin="00:04:09.694" end="00:04:13.294" style="s2">plateformes à scanner des messages</p>
+<p begin="00:04:11.214" end="00:04:14.894" style="s2">privés sans soupçon préalable et sans</p>
+<p begin="00:04:13.294" end="00:04:16.734" style="s2">décision d&#39;un juge. Mais c&#39;est</p>
+<p begin="00:04:14.894" end="00:04:18.134" style="s2">volontaire pour la plateforme et ça</p>
+<p begin="00:04:16.734" end="00:04:20.334" style="s2">concerne les services qui ne sont pas</p>
+<p begin="00:04:18.134" end="00:04:23.454" style="s2">chiffrés de bout en bout comme Gmail ou</p>
+<p begin="00:04:20.334" end="00:04:25.494" style="s2">Snapchat. WhatsApp, Signal et iMessage</p>
+<p begin="00:04:23.454" end="00:04:27.294" style="s2">ne sont pas concernés. Et le scan</p>
+<p begin="00:04:25.494" end="00:04:29.214" style="s2">directement dans ton téléphone, ce qu&#39;on</p>
+<p begin="00:04:27.294" end="00:04:31.654" style="s2">appelle le scan côté client, le</p>
+<p begin="00:04:29.214" end="00:04:33.934" style="s2">Parlement l&#39;a bloqué en 2023 et pour</p>
+<p begin="00:04:31.654" end="00:04:35.694" style="s2">l&#39;instant, il est toujours bloqué. Donc</p>
+<p begin="00:04:33.934" end="00:04:38.334" style="s2">aujourd&#39;hui, personne ne scanne ton</p>
+<p begin="00:04:35.694" end="00:04:39.774" style="s2">téléphone. Pas encore. Je le dis très</p>
+<p begin="00:04:38.334" end="00:04:41.814" style="s2">clairement parce que je ne vais pas te</p>
+<p begin="00:04:39.774" end="00:04:43.574" style="s2">vendre une fausse peur. Mais regarde ce</p>
+<p begin="00:04:41.814" end="00:04:46.214" style="s2">qui se passe à côté. La version</p>
+<p begin="00:04:43.574" end="00:04:47.654" style="s2">permanente Chat contrôle 2.0 est</p>
+<p begin="00:04:46.214" end="00:04:50.254" style="s2">toujours en négociation entre le</p>
+<p begin="00:04:47.654" end="00:04:52.294" style="s2">Parlement, la Commission et les États.</p>
+<p begin="00:04:50.254" end="00:04:54.094" style="s2">Et le point qui bloque, c&#39;est exactement</p>
+<p begin="00:04:52.294" end="00:04:56.174" style="s2">celui-là. Est-ce qu&#39;on scanne tout le</p>
+<p begin="00:04:54.094" end="00:04:58.614" style="s2">monde sans soupçon ou seulement les</p>
+<p begin="00:04:56.174" end="00:05:00.254" style="s2">personnes visées par un ? Et Signal a</p>
+<p begin="00:04:58.614" end="00:05:01.734" style="s2">déjà dit publiquement qu&#39;il quitterait</p>
+<p begin="00:05:00.254" end="00:05:04.374" style="s2">l&#39;Europe plutôt que d&#39;affaiblir son</p>
+<p begin="00:05:01.734" end="00:05:04.374" style="s2">chiffrement.</p>
+<p begin="00:05:05.014" end="00:05:08.934" style="s2">Et c&#39;est là que ça te concerne</p>
+<p begin="00:05:06.414" end="00:05:10.414" style="s2">directement. Dans ce dossier, la France</p>
+<p begin="00:05:08.934" end="00:05:12.414" style="s2">fait partie des pays qui soutiennent le</p>
+<p begin="00:05:10.414" end="00:05:13.974" style="s2">plus Chat contrôle et les mesures qui</p>
+<p begin="00:05:12.414" end="00:05:16.214" style="s2">affaiblissent le chiffrement.</p>
+<p begin="00:05:13.974" end="00:05:18.694" style="s2">L&#39;Allemagne, elle, a dit non au scan</p>
+<p begin="00:05:16.214" end="00:05:20.534" style="s2">généralisé. Nous, non.</p>
+<p begin="00:05:18.694" end="00:05:22.014" style="s2">En parallèle, l&#39;Europe impose à chaque</p>
+<p begin="00:05:20.534" end="00:05:23.894" style="s2">pays de proposer un portefeuille</p>
+<p begin="00:05:22.014" end="00:05:26.214" style="s2">d&#39;identité numérique sur le téléphone de</p>
+<p begin="00:05:23.894" end="00:05:28.774" style="s2">ses habitants. En France, ça passe par</p>
+<p begin="00:05:26.214" end="00:05:31.094" style="s2">France Identité. Ta carte d&#39;identité</p>
+<p begin="00:05:28.774" end="00:05:33.054" style="s2">dans ton smartphone. Pris séparément,</p>
+<p begin="00:05:31.094" end="00:05:34.774" style="s2">chaque chose a une justification.</p>
+<p begin="00:05:33.054" end="00:05:36.974" style="s2">Protéger les enfants, personne ne va</p>
+<p begin="00:05:34.774" end="00:05:39.414" style="s2">contester ça, évidemment. Simplifier les</p>
+<p begin="00:05:36.974" end="00:05:42.814" style="s2">démarches, OK. Lutter contre les fausses</p>
+<p begin="00:05:39.414" end="00:05:42.814" style="s2">applis, OK aussi.</p>
+<p begin="00:05:43.454" end="00:05:48.014" style="s2">Mais maintenant, assemble les morceaux,</p>
+<p begin="00:05:45.694" end="00:05:50.254" style="s2">ce que presque personne ne fait. D&#39;un</p>
+<p begin="00:05:48.014" end="00:05:52.414" style="s2">côté, une plateforme qui se ferme.</p>
+<p begin="00:05:50.254" end="00:05:54.894" style="s2">L&#39;iPhone est déjà fermé et Android est</p>
+<p begin="00:05:52.414" end="00:05:56.494" style="s2">en train de le devenir. D&#39;ici 1 an, sur</p>
+<p begin="00:05:54.894" end="00:05:58.974" style="s2">les deux, tu ne pourras installer que</p>
+<p begin="00:05:56.494" end="00:06:01.054" style="s2">des logiciels identifiés et approuvés.</p>
+<p begin="00:05:58.974" end="00:06:02.574" style="s2">De l&#39;autre, un cadre légal qui pousse</p>
+<p begin="00:06:01.054" end="00:06:04.614" style="s2">vers le scan des communications sans</p>
+<p begin="00:06:02.574" end="00:06:06.535" style="s2">soupçon et vers une identité d&#39;État dans</p>
+<p begin="00:06:04.614" end="00:06:08.575" style="s2">le téléphone. Je ne dis pas que c&#39;est un</p>
+<p begin="00:06:06.535" end="00:06:10.335" style="s2">complot, je dis que quand tu construis</p>
+<p begin="00:06:08.575" end="00:06:12.175" style="s2">une plateforme où seul le logiciel</p>
+<p begin="00:06:10.335" end="00:06:13.895" style="s2">approuvé peut tourner et que tu ajoutes</p>
+<p begin="00:06:12.175" end="00:06:16.055" style="s2">par-dessus une infrastructure légale</p>
+<p begin="00:06:13.895" end="00:06:18.335" style="s2">pour scanner et identifier, ce que tu as</p>
+<p begin="00:06:16.055" end="00:06:20.135" style="s2">construit, c&#39;est une architecture. Et</p>
+<p begin="00:06:18.335" end="00:06:21.815" style="s2">une fois que cette architecture existe,</p>
+<p begin="00:06:20.135" end="00:06:23.495" style="s2">changer ce qu&#39;on en fait, ce n&#39;est plus</p>
+<p begin="00:06:21.815" end="00:06:25.855" style="s2">un problème technique. Il suffit d&#39;un</p>
+<p begin="00:06:23.495" end="00:06:27.935" style="s2">changement de règles, une signature, un</p>
+<p begin="00:06:25.855" end="00:06:30.175" style="s2">vote d&#39;urgence un jeudi après-midi comme</p>
+<p begin="00:06:27.935" end="00:06:33.215" style="s2">celui du 9 juillet. Et à ce moment-là,</p>
+<p begin="00:06:30.175" end="00:06:33.215" style="s2">il n&#39;y a plus de sortie.</p>
+<p begin="00:06:33.855" end="00:06:37.935" style="s2">Alors, la vraie question, quand la porte</p>
+<p begin="00:06:36.135" end="00:06:40.375" style="s2">se ferme, est-ce qu&#39;il existe un endroit</p>
+<p begin="00:06:37.935" end="00:06:43.175" style="s2">où ? Première option, les ROMs</p>
+<p begin="00:06:40.375" end="00:06:45.535" style="s2">alternatives comme LineageOS. Et là, il</p>
+<p begin="00:06:43.175" end="00:06:47.335" style="s2">y a une info intéressante. LineageOS a</p>
+<p begin="00:06:45.535" end="00:06:49.575" style="s2">dit que la vérification de Google ne les</p>
+<p begin="00:06:47.335" end="00:06:51.535" style="s2">concerne pas parce que le vérificateur</p>
+<p begin="00:06:49.575" end="00:06:53.535" style="s2">est un composant de Google et qu&#39;il ne</p>
+<p begin="00:06:51.535" end="00:06:55.255" style="s2">l&#39;intègre pas. Tu enlèves les services</p>
+<p begin="00:06:53.535" end="00:06:57.495" style="s2">Google, tu enlèves leurs moyens de</p>
+<p begin="00:06:55.255" end="00:06:58.615" style="s2">contrôle. Mais ça reste Android et ça</p>
+<p begin="00:06:57.495" end="00:07:01.015" style="s2">peut changer.</p>
+<p begin="00:06:58.615" end="00:07:03.255" style="s2">Deuxième option, plus radicale, mettre</p>
+<p begin="00:07:01.015" end="00:07:05.935" style="s2">un vrai Linux sur un téléphone. Pas une</p>
+<p begin="00:07:03.255" end="00:07:08.615" style="s2">ROM, un vrai système Linux. Le projet le</p>
+<p begin="00:07:05.935" end="00:07:09.855" style="s2">plus avancé s&#39;appelle PostmarketOS.</p>
+<p begin="00:07:08.615" end="00:07:11.575" style="s2">Et pour comprendre pourquoi c&#39;est</p>
+<p begin="00:07:09.855" end="00:07:14.055" style="s2">important, il faut savoir comment</p>
+<p begin="00:07:11.575" end="00:07:16.375" style="s2">fonctionne ton téléphone. Android tourne</p>
+<p begin="00:07:14.055" end="00:07:18.815" style="s2">sur le noyau Linux. Mais le noyau de ton</p>
+<p begin="00:07:16.375" end="00:07:20.815" style="s2">téléphone, ce n&#39;est pas vraiment Linux.</p>
+<p begin="00:07:18.815" end="00:07:22.575" style="s2">Qualcomm prend une version de Linux et y</p>
+<p begin="00:07:20.815" end="00:07:24.455" style="s2">ajoute des milliers de modifications à</p>
+<p begin="00:07:22.575" end="00:07:27.295" style="s2">lui pour faire marcher sa puce, son</p>
+<p begin="00:07:24.455" end="00:07:30.375" style="s2">modem, sa gestion d&#39;énergie. Ensuite, le</p>
+<p begin="00:07:27.295" end="00:07:32.335" style="s2">fabricant, Samsung, Xiaomi, OnePlus, peu</p>
+<p begin="00:07:30.375" end="00:07:34.415" style="s2">importe, en rajoute encore une couche</p>
+<p begin="00:07:32.335" end="00:07:36.255" style="s2">pour son écran et ses capteurs. Et ces</p>
+<p begin="00:07:34.415" end="00:07:38.495" style="s2">modifications, elles ne sont jamais</p>
+<p begin="00:07:36.255" end="00:07:40.375" style="s2">renvoyées au projet Linux officiel parce</p>
+<p begin="00:07:38.495" end="00:07:43.095" style="s2">que ça coûte du temps et de l&#39;argent et</p>
+<p begin="00:07:40.375" end="00:07:44.575" style="s2">que ça ne rapporte rien. Conséquence, le</p>
+<p begin="00:07:43.095" end="00:07:46.775" style="s2">jour où le fabricant décide que ton</p>
+<p begin="00:07:44.575" end="00:07:48.895" style="s2">téléphone ne l&#39;intéresse plus, son noyau</p>
+<p begin="00:07:46.775" end="00:07:50.575" style="s2">est gelé pour toujours. C&#39;est pour ça</p>
+<p begin="00:07:48.895" end="00:07:52.495" style="s2">que ton téléphone de 4 ans fait tourner</p>
+<p begin="00:07:50.575" end="00:07:54.495" style="s2">un noyau encore plus vieux et qu&#39;il le</p>
+<p begin="00:07:52.495" end="00:07:56.895" style="s2">fera jusqu&#39;à ce que tu le jettes.</p>
+<p begin="00:07:54.495" end="00:07:58.855" style="s2">Ce que fait la communauté PostmarketOS,</p>
+<p begin="00:07:56.895" end="00:08:01.335" style="s2">c&#39;est exactement le travail que Qualcomm</p>
+<p begin="00:07:58.855" end="00:08:03.655" style="s2">n&#39;a pas fait. Comprendre le matériel,</p>
+<p begin="00:08:01.335" end="00:08:05.695" style="s2">réécrire les pilotes à partir de zéro en</p>
+<p begin="00:08:03.655" end="00:08:08.217" style="s2">open source et les faire accepter dans</p>
+<p begin="00:08:05.695" end="00:08:10.297" style="s2">le Linux officiel. Et quand ça marche,</p>
+<p begin="00:08:08.217" end="00:08:11.897" style="s2">le téléphone ne dépend plus de personne.</p>
+<p begin="00:08:10.297" end="00:08:14.697" style="s2">Chaque nouvelle version de Linux lui</p>
+<p begin="00:08:11.897" end="00:08:16.417" style="s2">arrive sans limite de temps. Résultat,</p>
+<p begin="00:08:14.697" end="00:08:18.337" style="s2">certains vieux téléphones abandonnés par</p>
+<p begin="00:08:16.417" end="00:08:19.857" style="s2">leur fabricant tournent aujourd&#39;hui avec</p>
+<p begin="00:08:18.337" end="00:08:22.297" style="s2">un noyau plus récent que celui de</p>
+<p begin="00:08:19.857" end="00:08:24.297" style="s2">téléphones neufs. Et sur ce téléphone,</p>
+<p begin="00:08:22.297" end="00:08:26.737" style="s2">tu installes ce que tu veux avec un vrai</p>
+<p begin="00:08:24.297" end="00:08:28.097" style="s2">gestionnaire de paquets. Firefox complet</p>
+<p begin="00:08:26.737" end="00:08:30.337" style="s2">avec ses extensions, [musique] des</p>
+<p begin="00:08:28.097" end="00:08:31.617" style="s2">logiciels de bureau et même Android dans</p>
+<p begin="00:08:30.337" end="00:08:33.897" style="s2">un conteneur pour les applis qui</p>
+<p begin="00:08:31.617" end="00:08:34.897" style="s2">n&#39;existent pas ailleurs. Et personne ne</p>
+<p begin="00:08:33.897" end="00:08:37.537" style="s2">vérifie l&#39;identité de [musique]</p>
+<p begin="00:08:34.897" end="00:08:37.537" style="s2">personne.</p>
+<p begin="00:08:38.177" end="00:08:42.137" style="s2">Maintenant, je ne vais pas te mentir.</p>
+<p begin="00:08:40.257" end="00:08:44.017" style="s2">Aujourd&#39;hui, ce n&#39;est pas utilisable au</p>
+<p begin="00:08:42.137" end="00:08:45.977" style="s2">quotidien. Et il y a un schéma très</p>
+<p begin="00:08:44.017" end="00:08:48.097" style="s2">clair. Tout ce qui fonctionne, c&#39;est ce</p>
+<p begin="00:08:45.977" end="00:08:49.737" style="s2">que la communauté a réussi à réécrire en</p>
+<p begin="00:08:48.097" end="00:08:52.017" style="s2">open source. Et tout ce qui ne</p>
+<p begin="00:08:49.737" end="00:08:53.497" style="s2">fonctionne pas, absolument tout, c&#39;est</p>
+<p begin="00:08:52.017" end="00:08:55.897" style="s2">ce que Qualcomm et les fabricants</p>
+<p begin="00:08:53.497" end="00:08:57.737" style="s2">gardent fermés. Le modem par exemple,</p>
+<p begin="00:08:55.897" end="00:09:00.457" style="s2">tourne avec un logiciel propriétaire que</p>
+<p begin="00:08:57.737" end="00:09:02.417" style="s2">personne ne peut modifier. Résultat, sur</p>
+<p begin="00:09:00.457" end="00:09:04.537" style="s2">certains modèles, rien que reconnaître</p>
+<p begin="00:09:02.417" end="00:09:06.857" style="s2">la carte SIM ou passer un appel demande</p>
+<p begin="00:09:04.537" end="00:09:08.257" style="s2">des manipulations en ligne de commande.</p>
+<p begin="00:09:06.857" end="00:09:10.537" style="s2">La mise en veille profonde ne marche pas</p>
+<p begin="00:09:08.257" end="00:09:12.697" style="s2">bien, donc l&#39;autonomie s&#39;effondre. La</p>
+<p begin="00:09:10.537" end="00:09:13.977" style="s2">caméra donne une image catastrophique</p>
+<p begin="00:09:12.697" end="00:09:16.457" style="s2">parce que tout le traitement photo du</p>
+<p begin="00:09:13.977" end="00:09:18.097" style="s2">fabricant, c&#39;est du secret industriel.</p>
+<p begin="00:09:16.457" end="00:09:19.297" style="s2">Le capteur d&#39;empreinte ne marche pas</p>
+<p begin="00:09:18.097" end="00:09:21.137" style="s2">parce qu&#39;il est géré par une zone</p>
+<p begin="00:09:19.297" end="00:09:23.057" style="s2">sécurisée de la puce que Linux ne peut</p>
+<p begin="00:09:21.137" end="00:09:26.137" style="s2">pas utiliser. Pas de paiement sans</p>
+<p begin="00:09:23.057" end="00:09:27.857" style="s2">contact. Et Netflix en qualité minimale.</p>
+<p begin="00:09:26.137" end="00:09:29.977" style="s2">Donc, pour remplacer le téléphone que tu</p>
+<p begin="00:09:27.857" end="00:09:33.017" style="s2">as dans la poche aujourd&#39;hui, c&#39;est non.</p>
+<p begin="00:09:29.977" end="00:09:33.017" style="s2">N&#39;essaie même pas.</p>
+<p begin="00:09:33.657" end="00:09:36.417" style="s2">Mais la question n&#39;a jamais été de</p>
+<p begin="00:09:35.017" end="00:09:38.737" style="s2">savoir si c&#39;est aussi bien qu&#39;un</p>
+<p begin="00:09:36.417" end="00:09:40.817" style="s2">téléphone neuf. Ça, Google et Apple</p>
+<p begin="00:09:38.737" end="00:09:42.417" style="s2">l&#39;ont gagné et ils le gagneront toujours</p>
+<p begin="00:09:40.817" end="00:09:45.057" style="s2">avec leurs milliers d&#39;ingénieurs et</p>
+<p begin="00:09:42.417" end="00:09:46.897" style="s2">leurs milliards. La question c&#39;est quand</p>
+<p begin="00:09:45.057" end="00:09:48.937" style="s2">la porte se ferme, est-ce qu&#39;il reste un</p>
+<p begin="00:09:46.897" end="00:09:51.617" style="s2">endroit où personne ne décide à ta place</p>
+<p begin="00:09:48.937" end="00:09:54.537" style="s2">quel logiciel tourne et ce qu&#39;on ? Et la</p>
+<p begin="00:09:51.617" end="00:09:55.737" style="s2">réponse, c&#39;est oui, il existe. Il y a</p>
+<p begin="00:09:54.537" end="00:09:57.817" style="s2">des gens qui écrivent des pilotes</p>
+<p begin="00:09:55.737" end="00:09:59.217" style="s2">gratuitement, un noyau qui continue de</p>
+<p begin="00:09:57.817" end="00:10:01.377" style="s2">mettre à jour des téléphones que leur</p>
+<p begin="00:09:59.217" end="00:10:03.217" style="s2">fabricant a enterré et un système qui</p>
+<p begin="00:10:01.377" end="00:10:05.737" style="s2">pourrait faire tenir un téléphone 10 ans</p>
+<p begin="00:10:03.217" end="00:10:07.497" style="s2">au lieu de 3. Mais il n&#39;est pas prêt. Et</p>
+<p begin="00:10:05.737" end="00:10:09.377" style="s2">c&#39;est ça le vrai problème. Pas que</p>
+<p begin="00:10:07.497" end="00:10:10.978" style="s2">l&#39;alternative soit mauvaise, c&#39;est que</p>
+<p begin="00:10:09.377" end="00:10:13.258" style="s2">la porte se ferme plus vite que</p>
+<p begin="00:10:10.978" end="00:10:15.418" style="s2">l&#39;alternative ne s&#39;ouvre. Quatre pays</p>
+<p begin="00:10:13.258" end="00:10:18.458" style="s2">depuis septembre, le monde entier en</p>
+<p begin="00:10:15.418" end="00:10:19.978" style="s2">2027, la France avec. Et la sortie de</p>
+<p begin="00:10:18.458" end="00:10:21.602" style="s2">secours n&#39;est toujours pas capable de</p>
+<p begin="00:10:19.978" end="00:10:21.978" style="s2">lire une carte SIM correctement.</p>
+<p begin="00:10:21.602" end="00:10:23.698" style="s2">[musique]</p>
+<p begin="00:10:21.978" end="00:10:25.138" style="s2">Et toi, tu es prêt à accepter qu&#39;une</p>
+<p begin="00:10:23.698" end="00:10:27.418" style="s2">entreprise décide de ce que tu peux</p>
+<p begin="00:10:25.138" end="00:10:30.538" style="s2">installer si c&#39;est au nom de la ?</p>
+<p begin="00:10:27.418" end="00:10:30.538" style="s2">Dis-le-moi en commentaire.</p>
+</div>
+</body>
+</tt>

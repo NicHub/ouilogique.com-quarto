@@ -1,0 +1,63 @@
+---
+author: Nico
+categories: []
+date: 2026-11-15 00:00:00+01:00
+draft: true
+lang: fr
+layout: page
+lightbox: auto
+pagetitle: '{{< meta title >}}'
+title: Google ferme Android
+---
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Ssy-EmYgYQ4?si=OXpki2wFue3SEG7b" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+## Un Android de plus en plus contrôlé
+
+Google veut rendre obligatoire la vérification des développeurs d’applications Android.
+Depuis le 30 septembre 2026, cette mesure est active au Brésil, en Indonésie, à Singapour et en Thaïlande.
+Elle devrait ensuite être étendue au monde entier en 2027.
+
+Jusqu’à présent, Android permettait d’installer librement une application au format APK, sans passer par une boutique ni fournir d’informations à Google.
+Avec le composant *Android Developer Verifier*, les applications distribuées par les principales boutiques devraient être associées à un développeur vérifié.
+Celui-ci devrait transmettre son identité, son nom légal, son adresse, son numéro de téléphone et payer des frais de 25 $.
+
+Google justifie cette évolution par la lutte contre les applications frauduleuses, notamment les fausses applications bancaires.
+Les applications non vérifiées ne seraient pas complètement interdites : une procédure avancée et l’installation par câble depuis un ordinateur resteraient possibles.
+Ces options seraient cependant suffisamment complexes pour décourager la plupart des utilisateurs.
+
+## Une évolution qui dépasse Android
+
+L’enjeu principal n’est donc pas seulement la vérification des développeurs, mais le transfert du pouvoir de décision vers Google.
+Si l’entreprise peut définir quelles applications sont autorisées, elle pourrait modifier ultérieurement les conditions d’utilisation de la plateforme.
+
+Cette évolution fait écho à plusieurs initiatives européennes :
+
+-   le projet _Chat Control_, qui autoriserait certaines plateformes à analyser es messages privés non chiffrés de bout en bout, sans soupçon préalable ;
+-   les discussions autour d’une version permanente de ce dispositif, notamment la question du chiffrement et de l’analyse généralisée des communications ;
+-   le déploiement d’identités numériques sur téléphone, comme _France Identité_.
+
+L’auteur souligne que ces mesures ont chacune une justification — lutter contre les arnaques, protéger les enfants ou simplifier les démarches —, mais s’inquiète de leur combinaison : une plateforme plus fermée, des logiciels approuvés par un intermédiaire et une identité numérique intégrée au smartphone.
+
+## Quelles alternatives ?
+
+La vidéo cite d’abord les ROM alternatives comme _LineageOS_.
+En retirant les services Google, ces systèmes ne seraient pas concernés de la même manière par le vérificateur de Google.
+Une solution plus radicale consisterait à installer un véritable système Linux mobile, comme _PostmarketOS_.
+
+_PostmarketOS_ cherche à remplacer progressivement les composants propriétaires des téléphones par des pilotes libres et intégrés au noyau Linux.
+L’objectif serait de prolonger la durée de vie des appareils et de permettre l’installation de logiciels sans contrôle centralisé.
+
+Cependant, l’alternative reste incomplète.
+Les modems, la gestion de  l’énergie, les appareils photo, les lecteurs d’empreintes et certaines fonctions de sécurité dépendent encore largement de logiciels propriétaires.
+Sur certains modèles, les appels, la carte SIM ou l’autonomie fonctionnent mal, et des  services comme le paiement sans contact ou Netflix sont limités.
+
+## Conclusion
+
+La vidéo ne prétend pas qu’Android disparaît immédiatement.
+Elle décrit plutôt la fermeture progressive de la plateforme et l’écart entre cette évolution, qui avancerait rapidement, et les alternatives libres, encore difficiles à utiliser au quotidien.
+Sa question centrale est de savoir s’il restera un environnement mobile où l’utilisateur pourra choisir librement les logiciels installés.
+
+> Cet article résume le contenu de la vidéo et ne constitue pas une vérification indépendante de toutes les informations qui y sont présentées.
+
+**Source :** [Google ferme Android — YouTube](https://www.youtube.com/watch?v=Ssy-EmYgYQ4)

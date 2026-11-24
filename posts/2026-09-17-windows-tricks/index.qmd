@@ -385,3 +385,8 @@ redirecteur `opencode.cmd`, le port de service dédié et le retrait d'un ancien
     wsl --set-default-version 1
     wsl --install -d Ubuntu
     ```
+
+**Icône Shutdown**
+:   A Way of Shutting Down The PC
+    Regular User
+    <https://www.youtube.com/watch?v=PaBLPgZt-WE>

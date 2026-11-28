@@ -146,11 +146,22 @@ title: Windows Tricks
     msinfo32
     ```
 
-**SHUTDOWN / RESTART COMPUTER**
+**SHUT DOWN OR RESTART THE COMPUTER**
 :   <https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/shutdown>
+
+**HYBRID SHUTDOWN FOR FAST STARTUP**
 :   ```powershell
-    shutdown /p
-    shutdown /r
+    shutdown /s /hybrid /t 0
+    ```
+
+**FULL SHUTDOWN**
+:   ```powershell
+    shutdown /s /t 0
+    ```
+
+**RESTART**
+:   ```powershell
+    shutdown /r /t 0
     ```
 
 **OPEN DEVICE MANAGER**
@@ -299,7 +310,9 @@ title: Windows Tricks
 
 **Upgrade all**
 :   ```powershell
-    winget upgrade --all
+    # Ouvrir le Terminal en mode admin : `Win+R` pwsh  `Ctrl+Shift+Enter`
+    winget source update
+    winget upgrade --all --silent --accept-package-agreements --accept-source-agreements --disable-interactivity
     ```
 
 **Upgrade single**
